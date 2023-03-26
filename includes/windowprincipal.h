@@ -2,6 +2,7 @@
 #define WINDOWPRINCIPAL_H
 
 #include <QMainWindow>
+#include <string>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class WindowPrincipal; }
@@ -15,6 +16,7 @@ public:
     WindowPrincipal(QWidget *parent = nullptr);
     ~WindowPrincipal();
 
+    void iniciaGraphicsView(std::string);
 private:
     Ui::WindowPrincipal *ui;
 
