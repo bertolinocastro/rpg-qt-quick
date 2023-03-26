@@ -18,7 +18,7 @@ public:
 private:
     Ui::WindowPrincipal *ui;
 
-private slots:
+public slots:
     void novoJogo();
 };
 #endif // WINDOWPRINCIPAL_H
