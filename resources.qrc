@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/wordart.png</file>
+    </qresource>
+</RCC>
