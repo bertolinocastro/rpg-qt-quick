@@ -7,6 +7,7 @@
 /*
  * Definindo caracteres reservados do arquivo de mapa:
  *
+ * 'S' = Start, posição inicial do player no mapa2
  * 'W' = Wall, parede intransponível
  * ' ' = Espaço vazio onde o player pode caminhar
  * 'F' = Fight, local onde tem um NPC para batalhar

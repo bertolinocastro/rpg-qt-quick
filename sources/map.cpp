@@ -50,17 +50,23 @@ std::string Map::parse(char token){
         caminho += "wall.png";
         break;
     case ' ':
-
+    case 'S':
+        caminho += "tile.png";
+        break;
     case 'F':
 
     case 'T':
-
+        caminho += "tree.png";
+        break;
     case 'B':
-
+        caminho += "bush.png";
+        break;
     case 'R':
-
+        caminho += "river.png";
+        break;
     case 'C':
-
+        caminho += "coin.png";
+        break;
     default:
         caminho += "black-square.png";
         break;
