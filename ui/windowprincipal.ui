@@ -32,13 +32,19 @@
     </property>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="pageJogo">
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <property name="spacing">
          <number>0</number>
+        </property>
+        <property name="sizeConstraint">
+         <enum>QLayout::SetNoConstraint</enum>
         </property>
         <property name="leftMargin">
          <number>0</number>
@@ -53,7 +59,11 @@
          <number>0</number>
         </property>
         <item>
-         <widget class="JogoView" name="jogoView"/>
+         <widget class="JogoView" name="jogoView">
+          <property name="lineWidth">
+           <number>0</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>

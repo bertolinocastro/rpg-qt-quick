@@ -38,7 +38,7 @@ void WindowPrincipal::iniciaJogoNaTela(std::string fase){
     JogoScene* jogoScene = new JogoScene(mapa);
 
     jogoView->setScene(jogoScene);
-
+    jogoView->setBg(mapa);
 
 
 }

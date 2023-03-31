@@ -11,6 +11,7 @@ class JogoView : public QGraphicsView
 public:
     JogoView(QWidget *parent);
     void setScene(QGraphicsScene *scene);
+    void setBg(Map &mapa);
 };
 
 #endif // JOGOVIEW_H
