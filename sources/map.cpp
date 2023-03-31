@@ -33,7 +33,10 @@ void Map::carregaMapa(std::string arquivo){
 
     int i=0;
     while(std::getline(file, linha)){
-        linha.copy(mapa[i], linha.length());
+        if (i == N_BLOCOS) // prevenindo do arquivo que tiver mais linhas que o necessário causar stack smashing por acessar memória o mapa[i] além da pré-alocada
+            break;
+//        linha.copy(mapa[i], linha.length());
+        linha.copy(mapa[i], N_BLOCOS); // copiando apenas o que foi alocado na Stack
         i++;
     }
 

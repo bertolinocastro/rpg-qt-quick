@@ -19,6 +19,7 @@ INCLUDEPATH += \
     $$PWD/includes/
 
 HEADERS += \
+    includes/definicoes.h \
     includes/map.h \
     includes/windowprincipal.h \
     includes/jogoview.h \

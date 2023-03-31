@@ -2,6 +2,7 @@
 #define MAP_H
 #include <string>
 #include <map>
+#include "definicoes.h"
 
 /*
  * Definindo caracteres reservados do arquivo de mapa:
@@ -31,7 +32,7 @@ protected:
 private:
     std::map<char, std::string> portais;
 
-    char mapa[64][64];
+    char mapa[N_BLOCOS][N_BLOCOS];
 
     void carregaMapa(std::string);
 
