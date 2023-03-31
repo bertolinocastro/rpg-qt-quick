@@ -16,7 +16,7 @@ public:
     WindowPrincipal(QWidget *parent = nullptr);
     ~WindowPrincipal();
 
-    void iniciaGraphicsView(std::string);
+    void iniciaJogoNaTela(std::string);
 private:
     Ui::WindowPrincipal *ui;
 
