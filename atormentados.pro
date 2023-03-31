@@ -9,6 +9,8 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    sources/jogoscene.cpp \
+    sources/jogoview.cpp \
     sources/main.cpp \
     sources/map.cpp \
     sources/windowprincipal.cpp
@@ -18,7 +20,9 @@ INCLUDEPATH += \
 
 HEADERS += \
     includes/map.h \
-    includes/windowprincipal.h
+    includes/windowprincipal.h \
+    includes/jogoview.h \
+    includes/jogoscene.h
 
 FORMS += \
     ui/windowprincipal.ui
@@ -33,3 +37,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resources.qrc
+

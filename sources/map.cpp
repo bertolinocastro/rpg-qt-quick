@@ -7,11 +7,17 @@
 Map::Map(std::string arquivo)
 {
 
-    leArquivo(arquivo);
+    carregaMapa(arquivo);
 
 }
 
-void Map::leArquivo(std::string arquivo){
+std::string Map::texturaDaCasa(int i, int j)
+{
+
+    return parse(mapa[i][j]);
+}
+
+void Map::carregaMapa(std::string arquivo){
 
     std::ifstream file("../atormentados/maps/"+arquivo); // caminho gambiarra, porque o deploy do Qt põe em outra pasta...
     std::string linha;
@@ -21,11 +27,40 @@ void Map::leArquivo(std::string arquivo){
         portais[linha[0]] = linha.substr(2);
     }
 
+//    for (auto& t : portais)
+//        std::cout << t.first << " " << t.second << "\n";
+
+
     int i=0;
     while(std::getline(file, linha)){
         linha.copy(mapa[i], linha.length());
-        std::cout<<mapa[i] << std::endl;
         i++;
     }
 
+
+}
+
+std::string Map::parse(char token){
+    std::string caminho = "";
+    switch(token){
+    case 'W':
+        caminho += "wall.png";
+        break;
+    case ' ':
+
+    case 'F':
+
+    case 'T':
+
+    case 'B':
+
+    case 'R':
+
+    case 'C':
+
+    default:
+        caminho += "black-square.png";
+        break;
+    }
+    return caminho;
 }

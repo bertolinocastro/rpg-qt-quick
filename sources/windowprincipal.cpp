@@ -1,4 +1,5 @@
 #include "windowprincipal.h"
+#include "qgraphicsitem.h"
 #include "ui_windowprincipal.h"
 #include <iostream>
 #include <map.h>
@@ -12,6 +13,7 @@ WindowPrincipal::WindowPrincipal(QWidget *parent)
 //    QPushButton *btnNovoJogo = ;
     QObject::connect(ui->pushButtonNovoJogo, &QPushButton::clicked, this, &WindowPrincipal::novoJogo);
 
+    showFullScreen();
 }
 
 WindowPrincipal::~WindowPrincipal()
@@ -23,11 +25,20 @@ void WindowPrincipal::novoJogo(){
     std::cout << "Entrou no slot Novo Jogo" <<std::endl;
     ui->stackedWidget->setCurrentIndex(0);
 
-    iniciaGraphicsView("inicial.txt");
+    iniciaJogoNaTela("inicial.txt");
 }
 
-void WindowPrincipal::iniciaGraphicsView(std::string fase){
+void WindowPrincipal::iniciaJogoNaTela(std::string fase){
 
     Map mapa = Map(fase);
+
+    JogoView* jogoView = ui->jogoView;
+    jogoView->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+
+    JogoScene* jogoScene = new JogoScene(mapa);
+
+    jogoView->setScene(jogoScene);
+
+
 
 }
