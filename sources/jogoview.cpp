@@ -8,7 +8,6 @@
 #include <QBrush>
 
 JogoView::JogoView(QWidget *parent) : QGraphicsView(parent) {
-
 }
 
 void JogoView::setScene(QGraphicsScene* scene) {
@@ -41,13 +40,12 @@ void JogoView::setScene(QGraphicsScene* scene) {
 //    setGeometry(0, 0, 64*12, 64*12);
 }
 
-void JogoView::setBg(Map& mapa) {
+void JogoView::setBg(Background& mapa) {
 
     std::string caminhoBase = "resources/";
 
     QImage bg(N_BLOCOS*LADO_BLOCOS, N_BLOCOS*LADO_BLOCOS, QImage::Format_ARGB32);
     QPainter painter(&bg);
-
     for (int i = 0; i < N_BLOCOS; i++){
         for (int j = 0; j < N_BLOCOS; j++){
             std::string textura = mapa.texturaDaCasa(i, j);

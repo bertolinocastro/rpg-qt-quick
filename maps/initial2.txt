@@ -1,0 +1,51 @@
+a=salaDoAnciao.txt
+b=matagal.txt
+FIM
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTTTTTRRRRRRRRRRRRRRRRRRRRRRRRRRRRT     TTTTT
+TTTTTTTTTTRRRRWWWWWWWWWWWWWWWWWWRRRRRRT     TTTTT
+TTTTTTTTTTRRRRW                WRRRRRR      TTTTT
+TTTTTTTTTTRRRRW                WRRRRRR      TTTTT
+TTTTTTTTTTRRRRW                WRRRRRR      TTTTT
+TTTTTTTTTTRRRRW      C          BBBBBBB     TTTTT
+TTTTTTTTTTRRRRW                WRRRRRR      TTTTT
+TTTTTTTTTTRRRRW                WRRRRRR      TTTTT
+TTTTTTTTTTRRRRW                WRRRRRRT     TTTTT
+TTTTTTTTTTRRRRW                WRRRRRRT     TTTTT
+TTTTTTTTTTRRRRWWWWWWWWWWWWWWWWWWRRRRRRT     TTTTT
+TTTTTTTTTTRRRRRRRRRRRRRRRRRRRRRRRRRRRRT     TTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT     TTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT     TTTTT
+ S                                          TTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################

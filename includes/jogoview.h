@@ -12,7 +12,7 @@ class JogoView : public QGraphicsView
 public:
     JogoView(QWidget *parent);
     void setScene(QGraphicsScene *scene);
-    void setBg(Map &mapa);
+    void setBg(Background &mapa);
 
 protected:
     void keyPressEvent(QKeyEvent *e);

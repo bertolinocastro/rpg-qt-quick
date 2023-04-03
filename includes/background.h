@@ -1,6 +1,7 @@
-#ifndef MAP_H
-#define MAP_H
+#ifndef BACKGROUND_H
+#define BACKGROUND_H
 #include <string>
+#include <QPointF>
 #include <map>
 #include "definicoes.h"
 
@@ -21,12 +22,17 @@
 
 
 
-class Map
+class Background
 {
 public:
-    Map();
-    Map(std::string);
+    Background();
+    Background(std::string);
     std::string texturaDaCasa(int i, int j);
+    void carregaMapa(std::string);
+    QPointF player_start_position;
+
+    //QRectF boundingRect() const override;
+    //void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
 protected:
     std::string parse(char token);
@@ -34,8 +40,7 @@ protected:
 private:
     std::map<char, std::string> portais;
     char mapa[N_BLOCOS][N_BLOCOS];
-    void carregaMapa(std::string);
 
 };
 
-#endif // MAP_H
+#endif // BACKGROUND_H

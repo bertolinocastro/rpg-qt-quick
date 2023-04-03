@@ -2,7 +2,7 @@
 #include "qgraphicsitem.h"
 #include "ui_windowprincipal.h"
 #include <iostream>
-#include <map.h>
+#include <background.h>
 
 WindowPrincipal::WindowPrincipal(QWidget *parent)
     : QMainWindow(parent)
@@ -55,12 +55,8 @@ void WindowPrincipal::start(std::string fase){
     JogoView* jogoView = ui->jogoView;
     jogoView->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
-    Map mapa = Map(fase);
+    Background mapa = Background(fase);
     JogoScene* jogoScene = new JogoScene(fase);
-
-    Jogador* jogador2 = new Jogador();
-    jogador2->setPos(100, 100);
-    jogoScene->addItem(jogador2); // TODO: Continuar dessa desgraça aqui. Não tô conseguindo compilar o código pra adicionar o player como uma subclasse do QGraphicsItem
 
     jogoView->setScene(jogoScene);
     jogoView->setBg(mapa);
