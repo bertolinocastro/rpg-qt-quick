@@ -14,7 +14,6 @@ QRectF Jogador::boundingRect() const {
 
 void Jogador::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    std::cout<< "Painting Player" << std::endl;
     QImage img(QString::fromStdString(caminho_sprite));
     img = img.scaled(LADO_BLOCOS, LADO_BLOCOS); // fazendo a imagem ocupar 12px no x e y
     painter->drawImage(-LADO_BLOCOS/2, -LADO_BLOCOS/2, img);

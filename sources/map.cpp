@@ -4,20 +4,15 @@
 //#include <string>
 
 
-Map::Map(std::string arquivo)
-{
-
+Map::Map(std::string arquivo) {
     carregaMapa(arquivo);
-
 }
 
-std::string Map::texturaDaCasa(int i, int j)
-{
-
+std::string Map::texturaDaCasa(int i, int j) {
     return parse(mapa[i][j]);
 }
 
-void Map::carregaMapa(std::string arquivo){
+void Map::carregaMapa(std::string arquivo) {
 
     std::ifstream file("maps/"+arquivo); // caminho gambiarra, porque o deploy do Qt põe em outra pasta...
     std::string linha;
@@ -38,7 +33,7 @@ void Map::carregaMapa(std::string arquivo){
 
 }
 
-std::string Map::parse(char token){
+std::string Map::parse(char token) {
     std::string caminho = "";
     switch(token){
     case 'W':

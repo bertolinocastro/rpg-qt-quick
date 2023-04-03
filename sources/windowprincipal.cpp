@@ -29,6 +29,7 @@ void WindowPrincipal::novoJogo(){
     //iniciaFase("inicial.txt");
 }
 
+/*
 void WindowPrincipal::iniciaFase(std::string fase){
 
     Map mapa = Map(fase);
@@ -47,19 +48,20 @@ void WindowPrincipal::iniciaFase(std::string fase){
 
 //    conectaJogador(jogador);
 }
+*/
 
 void WindowPrincipal::start(std::string fase){
-
-    Map mapa = Map(fase);
 
     JogoView* jogoView = ui->jogoView;
     jogoView->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
-    JogoScene* jogoScene = new JogoScene(mapa);
+    Map mapa = Map(fase);
+    JogoScene* jogoScene = new JogoScene(fase);
 
-    Jogador* jogador = new Jogador();
-    jogador->setPos(50,50);
-    jogoScene->addItem(jogador); // TODO: Continuar dessa desgraça aqui. Não tô conseguindo compilar o código pra adicionar o player como uma subclasse do QGraphicsItem
+    Jogador* jogador2 = new Jogador();
+    jogador2->setPos(100, 100);
+    jogoScene->addItem(jogador2); // TODO: Continuar dessa desgraça aqui. Não tô conseguindo compilar o código pra adicionar o player como uma subclasse do QGraphicsItem
 
     jogoView->setScene(jogoScene);
+    jogoView->setBg(mapa);
 }

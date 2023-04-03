@@ -24,17 +24,16 @@
 class Map
 {
 public:
+    Map();
     Map(std::string);
-
     std::string texturaDaCasa(int i, int j);
 
 protected:
     std::string parse(char token);
+
 private:
     std::map<char, std::string> portais;
-
     char mapa[N_BLOCOS][N_BLOCOS];
-
     void carregaMapa(std::string);
 
 };

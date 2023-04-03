@@ -7,8 +7,7 @@
 #include <QPainter>
 #include <QBrush>
 
-JogoView::JogoView(QWidget *parent) : QGraphicsView(parent)
-{
+JogoView::JogoView(QWidget *parent) : QGraphicsView(parent) {
 
 }
 
