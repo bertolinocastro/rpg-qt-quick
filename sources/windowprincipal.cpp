@@ -41,4 +41,38 @@ void WindowPrincipal::iniciaJogoNaTela(std::string fase){
     jogoView->setBg(mapa);
 
 
+    Jogador* jogador = new Jogador();
+    jogoScene->addItem(jogador); // TODO: Continuar dessa desgraça aqui. Não tô conseguindo compilar o código pra adicionar o player como uma subclasse do QGraphicsItem
+
+//    conectaJogador(jogador);
+}
+
+void WindowPrincipal::keyPressEvent(QKeyEvent* event){
+
+    switch(event->key()){
+    case Qt::Key_Up:
+        emit sobeJogador();
+        break;
+    case Qt::Key_Down:
+        emit desceJogador();
+        break;
+    case Qt::Key_Right:
+        emit orientaJogador();
+        break;
+    case Qt::Key_Left:
+        emit ocidentaJogador();
+        break;
+    default:
+        QWidget::keyPressEvent(event);
+        break;
+    }
+
+}
+
+void WindowPrincipal::conectaJogador(Jogador *jogador){
+//    QObject::connect(this, &WindowPrincipal::sobeJogador, jogador, &Jogador::andaCima);
+//    QObject::connect(ui->pushButtonNovoJogo, &QPushButton::clicked, this, &WindowPrincipal::novoJogo);
+//    QObject::connect(ui->pushButtonNovoJogo, &QPushButton::clicked, this, &WindowPrincipal::novoJogo);
+//    QObject::connect(ui->pushButtonNovoJogo, &QPushButton::clicked, this, &WindowPrincipal::novoJogo);
+
 }
