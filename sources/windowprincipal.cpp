@@ -57,7 +57,9 @@ void WindowPrincipal::start(std::string fase){
 
     JogoScene* jogoScene = new JogoScene(mapa);
 
-    jogoView->setScene(jogoScene);
-    jogoView->setBg(mapa);
+    Jogador* jogador = new Jogador();
+    jogador->setPos(50,50);
+    jogoScene->addItem(jogador); // TODO: Continuar dessa desgraça aqui. Não tô conseguindo compilar o código pra adicionar o player como uma subclasse do QGraphicsItem
 
+    jogoView->setScene(jogoScene);
 }

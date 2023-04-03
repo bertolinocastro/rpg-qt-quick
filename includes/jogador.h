@@ -18,7 +18,7 @@ public:
     void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
 private:
-    std::string caminho_sprite = "../resources/samurai.png";
+    std::string caminho_sprite = "resources/samurai.png";
 };
 
 #endif // JOGADOR_H
