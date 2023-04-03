@@ -19,7 +19,7 @@ std::string Map::texturaDaCasa(int i, int j)
 
 void Map::carregaMapa(std::string arquivo){
 
-    std::ifstream file("../atormentados/maps/"+arquivo); // caminho gambiarra, porque o deploy do Qt põe em outra pasta...
+    std::ifstream file("maps/"+arquivo); // caminho gambiarra, porque o deploy do Qt põe em outra pasta...
     std::string linha;
     while(std::getline(file, linha)){
         if (linha.compare("FIM")==0)

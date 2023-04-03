@@ -44,7 +44,7 @@ void JogoView::setScene(QGraphicsScene* scene){
 
 void JogoView::setBg(Map& mapa){
 
-    std::string caminhoBase = "../atormentados/resources/";
+    std::string caminhoBase = "resources/";
 
     QImage bg(N_BLOCOS*LADO_BLOCOS, N_BLOCOS*LADO_BLOCOS, QImage::Format_ARGB32);
     QPainter painter(&bg);

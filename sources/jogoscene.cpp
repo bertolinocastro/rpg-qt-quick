@@ -8,7 +8,7 @@ JogoScene::JogoScene(Map& mapa) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOCOS, N_B
 {
 //    setSceneRect(0, 0, 64*15, 64*15);
     std::cout << " rect da cena " << sceneRect().width() << " " << sceneRect().height() << std::endl;
-    std::string caminhoBase = "../atormentados/resources/";
+    std::string caminhoBase = "resources/";
     for (int i = 0; i < 32; i++){
         for (int j = 0; j < 32; j++){
             std::string textura = mapa.texturaDaCasa(i, j);
