@@ -2,7 +2,9 @@
 #define WINDOWPRINCIPAL_H
 
 #include <QMainWindow>
+#include <QKeyEvent>
 #include <string>
+#include "jogador.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class WindowPrincipal; }
@@ -17,6 +19,15 @@ public:
     ~WindowPrincipal();
 
     void iniciaJogoNaTela(std::string);
+    void keyPressEvent(QKeyEvent *event) override;
+
+    void conectaJogador(Jogador* jogador);
+signals:
+    void sobeJogador();
+    void desceJogador();
+    void orientaJogador();
+    void ocidentaJogador();
+
 private:
     Ui::WindowPrincipal *ui;
 
