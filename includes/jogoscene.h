@@ -12,16 +12,9 @@ class JogoScene : public QGraphicsScene
     Q_OBJECT
 public:
     JogoScene(Map& mapa);
+    void setBg(Map &mapa);
     void keyPressEvent(QKeyEvent* event);
 
-/*
-    void conectaJogador(Jogador* jogador);
-signals:
-    void sobeJogador();
-    void desceJogador();
-    void orientaJogador();
-    void ocidentaJogador();
-*/
 };
 
 #endif // JOGOSCENE_H

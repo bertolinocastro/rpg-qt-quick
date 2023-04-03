@@ -8,7 +8,8 @@ Jogador::Jogador()
 }
 
 QRectF Jogador::boundingRect() const {
-    return QRectF(-LADO_BLOCOS/2, -LADO_BLOCOS/2, LADO_BLOCOS, LADO_BLOCOS); // supondo o player um quadrado de tamanho 12x12
+    //return QRectF(-LADO_BLOCOS/2, -LADO_BLOCOS/2, LADO_BLOCOS, LADO_BLOCOS); // supondo o player um quadrado de tamanho 12x12
+    return QRectF(128, 128, 128, 128); // supondo o player um quadrado de tamanho 12x12
 }
 
 void Jogador::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)

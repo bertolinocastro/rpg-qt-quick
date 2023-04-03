@@ -10,15 +10,15 @@ class Jogador : public QGraphicsItem//, public QObject
 public:
     Jogador();
 
-
     void andaDireita();
     void andaEsquerda();
     void andaCima();
     void andaBaixo();
     QRectF boundingRect() const override;
     void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
+
 private:
-    std::string caminho_sprite = "../resources/jogador.png";
+    std::string caminho_sprite = "../resources/samurai.png";
 };
 
 #endif // JOGADOR_H

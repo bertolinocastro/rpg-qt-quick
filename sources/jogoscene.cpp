@@ -4,8 +4,8 @@
 #include "definicoes.h"
 //#include "blocodoterreno.h"
 
-JogoScene::JogoScene(Map& mapa) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOCOS, N_BLOCOS*LADO_BLOCOS)
-{
+JogoScene::JogoScene(Map& mapa) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOCOS, N_BLOCOS*LADO_BLOCOS) {
+
 //    setSceneRect(0, 0, 64*15, 64*15);
     std::cout << " rect da cena " << sceneRect().width() << " " << sceneRect().height() << std::endl;
     std::string caminhoBase = "resources/";
@@ -58,11 +58,7 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
     }
 
 }
-/*
-void JogoScene::conectaJogador(Jogador *jogador){
-    QObject::connect(this, &WindowPrincipal::sobeJogador, jogador, &Jogador::andaCima);
-    QObject::connect(ui->pushButtonNovoJogo, &QPushButton::clicked, this, &WindowPrincipal::novoJogo);
-    QObject::connect(ui->pushButtonNovoJogo, &QPushButton::clicked, this, &WindowPrincipal::novoJogo);
-    QObject::connect(ui->pushButtonNovoJogo, &QPushButton::clicked, this, &WindowPrincipal::novoJogo);
 
-}*/
+void JogoScene::setBg(Map& mapa) {
+
+}

@@ -76,7 +76,6 @@ void JogoView::setBg(Map& mapa) {
 //    setTransform(QTransform::fromScale(2.0, 1.0));
 //    setSceneRect(0, 0, 2*width(), height());
 
-
 }
 
 void JogoView::keyPressEvent(QKeyEvent *e) {
