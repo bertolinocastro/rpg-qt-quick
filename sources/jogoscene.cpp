@@ -36,3 +36,33 @@ JogoScene::JogoScene(Map& mapa) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOCOS, N_B
 
 //    }
 }
+
+void JogoScene::keyPressEvent(QKeyEvent* event) {
+    switch(event->key()){
+    case Qt::Key_Up:
+        std::cout << "Scene Up" << std::endl;
+        //emit sobeJogador();
+        break;
+    case Qt::Key_Down:
+        std::cout << "Scene Down" << std::endl;
+        //emit desceJogador();
+        break;
+    case Qt::Key_Right:
+        std::cout << "Scene Right" << std::endl;
+        //emit orientaJogador();
+        break;
+    case Qt::Key_Left:
+        std::cout << "Scene Left" << std::endl;
+        //emit ocidentaJogador();
+        break;
+    }
+
+}
+/*
+void JogoScene::conectaJogador(Jogador *jogador){
+    QObject::connect(this, &WindowPrincipal::sobeJogador, jogador, &Jogador::andaCima);
+    QObject::connect(ui->pushButtonNovoJogo, &QPushButton::clicked, this, &WindowPrincipal::novoJogo);
+    QObject::connect(ui->pushButtonNovoJogo, &QPushButton::clicked, this, &WindowPrincipal::novoJogo);
+    QObject::connect(ui->pushButtonNovoJogo, &QPushButton::clicked, this, &WindowPrincipal::novoJogo);
+
+}*/

@@ -25,10 +25,11 @@ void WindowPrincipal::novoJogo(){
     std::cout << "Entrou no slot Novo Jogo" <<std::endl;
     ui->stackedWidget->setCurrentIndex(0);
 
-    iniciaJogoNaTela("inicial.txt");
+    start("inicial.txt");
+    //iniciaFase("inicial.txt");
 }
 
-void WindowPrincipal::iniciaJogoNaTela(std::string fase){
+void WindowPrincipal::iniciaFase(std::string fase){
 
     Map mapa = Map(fase);
 
@@ -47,32 +48,20 @@ void WindowPrincipal::iniciaJogoNaTela(std::string fase){
 //    conectaJogador(jogador);
 }
 
-void WindowPrincipal::keyPressEvent(QKeyEvent* event){
+void WindowPrincipal::start(std::string fase){
 
-    switch(event->key()){
-    case Qt::Key_Up:
-        emit sobeJogador();
-        break;
-    case Qt::Key_Down:
-        emit desceJogador();
-        break;
-    case Qt::Key_Right:
-        emit orientaJogador();
-        break;
-    case Qt::Key_Left:
-        emit ocidentaJogador();
-        break;
-    default:
-        QWidget::keyPressEvent(event);
-        break;
-    }
+    Map mapa = Map(fase);
 
-}
+    JogoView* jogoView = ui->jogoView;
+    jogoView->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
-void WindowPrincipal::conectaJogador(Jogador *jogador){
-//    QObject::connect(this, &WindowPrincipal::sobeJogador, jogador, &Jogador::andaCima);
-//    QObject::connect(ui->pushButtonNovoJogo, &QPushButton::clicked, this, &WindowPrincipal::novoJogo);
-//    QObject::connect(ui->pushButtonNovoJogo, &QPushButton::clicked, this, &WindowPrincipal::novoJogo);
-//    QObject::connect(ui->pushButtonNovoJogo, &QPushButton::clicked, this, &WindowPrincipal::novoJogo);
+    JogoScene* jogoScene = new JogoScene(mapa);
+
+    jogoView->setScene(jogoScene);
+    jogoView->setBg(mapa);
+
+
+    Jogador* jogador = new Jogador();
+    jogoScene->addItem(jogador); // TODO: Continuar dessa desgraça aqui. Não tô conseguindo compilar o código pra adicionar o player como uma subclasse do QGraphicsItem
 
 }

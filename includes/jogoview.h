@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QGraphicsView>
+#include <QKeyEvent>
 #include <jogoscene.h>
 
 class JogoView : public QGraphicsView
@@ -12,6 +13,10 @@ public:
     JogoView(QWidget *parent);
     void setScene(QGraphicsScene *scene);
     void setBg(Map &mapa);
+
+protected:
+    void keyPressEvent(QKeyEvent *e);
+
 };
 
 #endif // JOGOVIEW_H

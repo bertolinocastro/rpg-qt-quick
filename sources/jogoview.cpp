@@ -12,7 +12,7 @@ JogoView::JogoView(QWidget *parent) : QGraphicsView(parent)
 
 }
 
-void JogoView::setScene(QGraphicsScene* scene){
+void JogoView::setScene(QGraphicsScene* scene) {
     QGraphicsView::setScene(scene);
 
     QRect telaGeometry = QGuiApplication::primaryScreen()->geometry();
@@ -42,7 +42,7 @@ void JogoView::setScene(QGraphicsScene* scene){
 //    setGeometry(0, 0, 64*12, 64*12);
 }
 
-void JogoView::setBg(Map& mapa){
+void JogoView::setBg(Map& mapa) {
 
     std::string caminhoBase = "resources/";
 
@@ -79,3 +79,26 @@ void JogoView::setBg(Map& mapa){
 
 }
 
+void JogoView::keyPressEvent(QKeyEvent *e) {
+    // Do something
+    switch(e->key()){
+        case Qt::Key_Up:
+            std::cout << "Pressed Up" << std::endl;
+            //emit sobeJogador();
+            break;
+        case Qt::Key_Down:
+            std::cout << "Pressed Down" << std::endl;
+            //emit desceJogador();
+            break;
+        case Qt::Key_Right:
+            std::cout << "Pressed Right" << std::endl;
+            //emit orientaJogador();
+            break;
+        case Qt::Key_Left:
+            std::cout << "Pressed Left" << std::endl;
+            //emit ocidentaJogador();
+            break;
+        }
+        // Otherwise pass to the graphics view
+        QGraphicsView::keyPressEvent(e)
+}

@@ -18,15 +18,8 @@ public:
     WindowPrincipal(QWidget *parent = nullptr);
     ~WindowPrincipal();
 
-    void iniciaJogoNaTela(std::string);
-    void keyPressEvent(QKeyEvent *event) override;
-
-    void conectaJogador(Jogador* jogador);
-signals:
-    void sobeJogador();
-    void desceJogador();
-    void orientaJogador();
-    void ocidentaJogador();
+    void iniciaFase(std::string);
+    void start(std::string);
 
 private:
     Ui::WindowPrincipal *ui;
