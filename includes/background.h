@@ -2,6 +2,7 @@
 #define BACKGROUND_H
 #include <string>
 #include <QPointF>
+#include <QGraphicsItem>
 #include <map>
 #include "definicoes.h"
 
@@ -30,9 +31,6 @@ public:
     std::string texturaDaCasa(int i, int j);
     void carregaMapa(std::string);
     QPointF player_start_position;
-
-    //QRectF boundingRect() const override;
-    //void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
 protected:
     std::string parse(char token);

@@ -1,4 +1,5 @@
 #include "background.h"
+#include <QPainter>
 #include <fstream>
 #include <iostream>
 //#include <string>
@@ -65,25 +66,3 @@ std::string Background::parse(char token) {
     }
     return caminho;
 }
-
-/*
-QRectF Background::boundingRect() const {
-    return QRectF(-LADO_BLOCOS/2, -LADO_BLOCOS/2, LADO_BLOCOS, LADO_BLOCOS); // supondo o player um quadrado de tamanho 12x12
-}
-
-void Background::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
-    std::string caminhoBase = "resources/";
-
-    QImage bg(N_BLOCOS*LADO_BLOCOS, N_BLOCOS*LADO_BLOCOS, QImage::Format_ARGB32);
-
-    for (int i = 0; i < N_BLOCOS; i++){
-        for (int j = 0; j < N_BLOCOS; j++){
-            std::string textura = mapa.texturaDaCasa(i, j);
-            QImage img(QString::fromStdString(caminhoBase+textura));
-            img = img.scaled(LADO_BLOCOS, LADO_BLOCOS); // fazendo a imagem ocupar 12px no x e y
-            painter->drawImage(LADO_BLOCOS*j, LADO_BLOCOS*i, img);
-        }
-    }
-
-}
-*/

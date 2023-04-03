@@ -7,8 +7,7 @@ JogoScene::JogoScene(std::string file) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOC
     std::cout << " rect da cena " << sceneRect().width() << " " << sceneRect().height() << std::endl;
     player_start_position = QPointF(25,25);
 
-    mapa = Background(file);
-    //addItem(mapa)
+    mapa =  Background(file);
 
     jogador = new Jogador();
     jogador->setPos(player_start_position);
@@ -18,19 +17,19 @@ JogoScene::JogoScene(std::string file) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOC
 void JogoScene::keyPressEvent(QKeyEvent* event) {
     switch(event->key()){
     case Qt::Key_Up:
-        //std::cout << "Scene Up" << std::endl;
+        std::cout << "Scene Up" << std::endl;
         jogador->setPos(jogador->scenePos().x(), jogador->scenePos().y()-LADO_BLOCOS);
         break;
     case Qt::Key_Down:
-        //std::cout << "Scene Down" << std::endl;
+        std::cout << "Scene Down" << std::endl;
         jogador->setPos(jogador->scenePos().x(), jogador->scenePos().y()+LADO_BLOCOS);
         break;
     case Qt::Key_Right:
-        //std::cout << "Scene Right" << std::endl;
+        std::cout << "Scene Right" << std::endl;
         jogador->setPos(jogador->scenePos().x()+LADO_BLOCOS, jogador->scenePos().y());
         break;
     case Qt::Key_Left:
-        //std::cout << "Scene Left" << std::endl;
+        std::cout << "Scene Left" << std::endl;
         jogador->setPos(jogador->scenePos().x()-LADO_BLOCOS, jogador->scenePos().y());
         break;
     }

@@ -55,9 +55,9 @@ void WindowPrincipal::start(std::string fase){
     JogoView* jogoView = ui->jogoView;
     jogoView->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
-    Background mapa = Background(fase);
+    //Background mapa = Background(fase);
     JogoScene* jogoScene = new JogoScene(fase);
 
     jogoView->setScene(jogoScene);
-    jogoView->setBg(mapa);
+    jogoView->setBg(jogoScene->mapa);
 }
