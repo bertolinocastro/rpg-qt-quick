@@ -4,6 +4,8 @@
 #include <iostream>
 #include <cmath>
 
+#include <QApplication>
+#include <QScreen>
 #include <QGraphicsItem>
 #include <QMessageBox>
 #include <QTextEdit>
@@ -14,8 +16,7 @@
 #include <QLabel>
 #include <QWidget>
 #include <QGuiApplication>
-
-
+#include <QPushButton>
 
 
 JogoScene::JogoScene(std::string file) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOCOS, N_BLOCOS*LADO_BLOCOS) {
@@ -58,21 +59,22 @@ bool JogoScene::blocked(int x, int y) {
 }
 
 void JogoScene::start_dialog() {
-    //QGraphicsRectItem* dialog =  new QGraphicsRectItem(0, 0, LADO_BLOCOS*5, LADO_BLOCOS*3);
+    QWidget* dialog = new QWidget;
+    dialog->setWindowTitle("Dialog");
+
     QLabel *label = new QLabel("first line\nsecond line");
     label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
     label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
 
-    QWidget* dialog = new QWidget;
-    dialog->setWindowTitle("Dialog");
-
-    QHBoxLayout* layout=new QHBoxLayout;
-    layout->addWidget(label);
-
+    QGridLayout* layout = new QGridLayout();
+    layout->addWidget(label, 1, 1, 1, 3);
+    layout->addWidget(new QPushButton("Continuar"), 2, 3);
+    layout->setAlignment(dialog, Qt::AlignHCenter | Qt::AlignBottom);
+    layout->setContentsMargins(5, 5, 5, 5);
     dialog->setLayout(layout);
 
+    dialog->move((N_BLOCOS/2)*LADO_BLOCOS - dialog->frameSize().width()/2, (N_BLOCOS/2)*LADO_BLOCOS - dialog->frameSize().height()/2);
     this->addWidget(dialog);
-    //dialog->setPos(mapToScene(pos))
 
 }
 
