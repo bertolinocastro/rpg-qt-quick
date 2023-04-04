@@ -1,8 +1,21 @@
-#include <iostream>
-#include <cmath>
-#include <QGraphicsItem>
 #include "jogoscene.h"
 #include "definicoes.h"
+
+#include <iostream>
+#include <cmath>
+
+#include <QGraphicsItem>
+#include <QMessageBox>
+#include <QTextEdit>
+#include <QLineEdit>
+#include <QInputDialog>
+#include <QDebug>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QWidget>
+
+
+
 
 JogoScene::JogoScene(std::string file) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOCOS, N_BLOCOS*LADO_BLOCOS) {
     std::cout << " rect da cena " << sceneRect().width() << " " << sceneRect().height() << std::endl;
@@ -30,21 +43,14 @@ bool JogoScene::blocked(int x, int y) {
     char token = cenario.mapa[y][x];
     switch(token){
         case ' ':
-            return false;
         case 'B':
-            return false;
         case 'C':
-            return false;
         case 'S':
-            return false;
-        case 'W':
-            return true;
         case 'T':
             return false;
+        case 'W':
         case 'R':
-            return true;
         case 'F':
-            return true;
         default:
             return true;
         }
@@ -53,25 +59,45 @@ bool JogoScene::blocked(int x, int y) {
 void JogoScene::keyPressEvent(QKeyEvent* event) {
     switch(event->key()){
     case Qt::Key_Up:
+    case Qt::Key_W:
         if (!JogoScene::blocked(std::floor(jogador->scenePos().x()/LADO_BLOCOS), std::floor((jogador->scenePos().y()-LADO_BLOCOS)/LADO_BLOCOS))) {
             jogador->setPos(jogador->scenePos().x(), jogador->scenePos().y()-LADO_BLOCOS);
         }
         break;
     case Qt::Key_Down:
+    case Qt::Key_S:
         if (!JogoScene::blocked(std::floor(jogador->scenePos().x()/LADO_BLOCOS), std::floor((jogador->scenePos().y()+LADO_BLOCOS)/LADO_BLOCOS))) {
             jogador->setPos(jogador->scenePos().x(), jogador->scenePos().y()+LADO_BLOCOS);
         }
         break;
     case Qt::Key_Right:
+    case Qt::Key_D:
         if (!JogoScene::blocked(std::floor((jogador->scenePos().x()+LADO_BLOCOS)/LADO_BLOCOS), std::floor(jogador->scenePos().y()/LADO_BLOCOS))) {
             jogador->setPos(jogador->scenePos().x()+LADO_BLOCOS, jogador->scenePos().y());
         }
         break;
     case Qt::Key_Left:
+    case Qt::Key_A:
         if (!JogoScene::blocked(std::floor((jogador->scenePos().x()-LADO_BLOCOS)/LADO_BLOCOS), std::floor(jogador->scenePos().y()/LADO_BLOCOS))) {
             jogador->setPos(jogador->scenePos().x()-LADO_BLOCOS, jogador->scenePos().y());
         }
         break;
+    case Qt::Key_Enter:
+    case Qt::Key_Return:
+    case Qt::Key_E:
+        std::cout << "Enter Pressed" << std::endl;
+        //QGraphicsRectItem* dialog =  new QGraphicsRectItem(0, 0, LADO_BLOCOS*5, LADO_BLOCOS*3);
+        QLabel *label = new QLabel("first line\nsecond line");
+        label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+        label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
+        //QString text = "Pressed Enter";
+        QWidget* widget=new QWidget;
+        QHBoxLayout* layout=new QHBoxLayout;
+        layout->addWidget(label);
+        widget->setLayout(layout);
+        this->addWidget(widget);
+        //dialog->setPos(mapToScene(pos))
+
     }
 
 }

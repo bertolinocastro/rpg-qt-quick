@@ -1,11 +1,21 @@
 #include "jogoview.h"
 #include "definicoes.h"
+
+#include <iostream>
+
 #include <QApplication>
 #include <QScreen>
-#include <iostream>
 #include <QImage>
 #include <QPainter>
 #include <QBrush>
+#include <QLineEdit>
+#include <QInputDialog>
+#include <QMessageBox>
+#include <QDebug>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QWidget>
+
 
 JogoView::JogoView(QWidget *parent) : QGraphicsView(parent) {
 }
@@ -75,9 +85,9 @@ void JogoView::setBg(Background& mapa) {
 
 }
 
-void JogoView::keyPressEvent(QKeyEvent *e) {
+void JogoView::keyPressEvent(QKeyEvent *event) {
     // Do something
 
     // Otherwise pass to the graphics view
-    QGraphicsView::keyPressEvent(e);
+    QGraphicsView::keyPressEvent(event);
 }
