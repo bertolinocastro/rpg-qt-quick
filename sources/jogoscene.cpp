@@ -13,6 +13,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QWidget>
+#include <QGuiApplication>
 
 
 
@@ -56,6 +57,25 @@ bool JogoScene::blocked(int x, int y) {
         }
 }
 
+void JogoScene::start_dialog() {
+    //QGraphicsRectItem* dialog =  new QGraphicsRectItem(0, 0, LADO_BLOCOS*5, LADO_BLOCOS*3);
+    QLabel *label = new QLabel("first line\nsecond line");
+    label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+    label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
+
+    QWidget* dialog = new QWidget;
+    dialog->setWindowTitle("Dialog");
+
+    QHBoxLayout* layout=new QHBoxLayout;
+    layout->addWidget(label);
+
+    dialog->setLayout(layout);
+
+    this->addWidget(dialog);
+    //dialog->setPos(mapToScene(pos))
+
+}
+
 void JogoScene::keyPressEvent(QKeyEvent* event) {
     switch(event->key()){
     case Qt::Key_Up:
@@ -86,18 +106,8 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
     case Qt::Key_Return:
     case Qt::Key_E:
         std::cout << "Enter Pressed" << std::endl;
-        //QGraphicsRectItem* dialog =  new QGraphicsRectItem(0, 0, LADO_BLOCOS*5, LADO_BLOCOS*3);
-        QLabel *label = new QLabel("first line\nsecond line");
-        label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-        label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
-        //QString text = "Pressed Enter";
-        QWidget* widget=new QWidget;
-        QHBoxLayout* layout=new QHBoxLayout;
-        layout->addWidget(label);
-        widget->setLayout(layout);
-        this->addWidget(widget);
-        //dialog->setPos(mapToScene(pos))
-
+        JogoScene::start_dialog();
+        break;
     }
 
 }
