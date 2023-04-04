@@ -1,36 +1,76 @@
 #include <iostream>
+#include <cmath>
 #include <QGraphicsItem>
 #include "jogoscene.h"
 #include "definicoes.h"
 
 JogoScene::JogoScene(std::string file) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOCOS, N_BLOCOS*LADO_BLOCOS) {
     std::cout << " rect da cena " << sceneRect().width() << " " << sceneRect().height() << std::endl;
-    player_start_position = QPointF(25,25);
+    player_start_position = QPointF(2*LADO_BLOCOS,45*LADO_BLOCOS);
 
-    mapa =  Background(file);
+    cenario =  Background(file);
+    int n = 48;
+    int m = 48;
+    for (int i=0;i<n;i++){
+		std::cout << std::endl;
+		std::cout << "|";
+		for (int k=0;k<m;k++){
+			if(k>0) std::cout << " ";
+			std::cout << cenario.mapa[i][k];
+			if(k==m-1) std::cout << "|";
+		}
+	}
 
     jogador = new Jogador();
     jogador->setPos(player_start_position);
-    addItem(jogador); // TODO: Continuar dessa desgraça aqui. Não tô conseguindo compilar o código pra adicionar o player como uma subclasse do QGraphicsItem
+    addItem(jogador);
+}
+
+bool JogoScene::blocked(int x, int y) {
+    char token = cenario.mapa[y][x];
+    switch(token){
+        case ' ':
+            return false;
+        case 'B':
+            return false;
+        case 'C':
+            return false;
+        case 'S':
+            return false;
+        case 'W':
+            return true;
+        case 'T':
+            return false;
+        case 'R':
+            return true;
+        case 'F':
+            return true;
+        default:
+            return true;
+        }
 }
 
 void JogoScene::keyPressEvent(QKeyEvent* event) {
     switch(event->key()){
     case Qt::Key_Up:
-        std::cout << "Scene Up" << std::endl;
-        jogador->setPos(jogador->scenePos().x(), jogador->scenePos().y()-LADO_BLOCOS);
+        if (!JogoScene::blocked(std::floor(jogador->scenePos().x()/LADO_BLOCOS), std::floor((jogador->scenePos().y()-LADO_BLOCOS)/LADO_BLOCOS))) {
+            jogador->setPos(jogador->scenePos().x(), jogador->scenePos().y()-LADO_BLOCOS);
+        }
         break;
     case Qt::Key_Down:
-        std::cout << "Scene Down" << std::endl;
-        jogador->setPos(jogador->scenePos().x(), jogador->scenePos().y()+LADO_BLOCOS);
+        if (!JogoScene::blocked(std::floor(jogador->scenePos().x()/LADO_BLOCOS), std::floor((jogador->scenePos().y()+LADO_BLOCOS)/LADO_BLOCOS))) {
+            jogador->setPos(jogador->scenePos().x(), jogador->scenePos().y()+LADO_BLOCOS);
+        }
         break;
     case Qt::Key_Right:
-        std::cout << "Scene Right" << std::endl;
-        jogador->setPos(jogador->scenePos().x()+LADO_BLOCOS, jogador->scenePos().y());
+        if (!JogoScene::blocked(std::floor((jogador->scenePos().x()+LADO_BLOCOS)/LADO_BLOCOS), std::floor(jogador->scenePos().y()/LADO_BLOCOS))) {
+            jogador->setPos(jogador->scenePos().x()+LADO_BLOCOS, jogador->scenePos().y());
+        }
         break;
     case Qt::Key_Left:
-        std::cout << "Scene Left" << std::endl;
-        jogador->setPos(jogador->scenePos().x()-LADO_BLOCOS, jogador->scenePos().y());
+        if (!JogoScene::blocked(std::floor((jogador->scenePos().x()-LADO_BLOCOS)/LADO_BLOCOS), std::floor(jogador->scenePos().y()/LADO_BLOCOS))) {
+            jogador->setPos(jogador->scenePos().x()-LADO_BLOCOS, jogador->scenePos().y());
+        }
         break;
     }
 

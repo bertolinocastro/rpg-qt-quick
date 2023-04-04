@@ -17,7 +17,10 @@ public:
     void keyPressEvent(QKeyEvent* event);
     QPointF player_start_position;
     Jogador* jogador;
-    Background mapa;
+    Background cenario;
+
+private:
+    bool blocked(int x, int y);
 };
 
 #endif // JOGOSCENE_H

@@ -59,5 +59,5 @@ void WindowPrincipal::start(std::string fase){
     JogoScene* jogoScene = new JogoScene(fase);
 
     jogoView->setScene(jogoScene);
-    jogoView->setBg(jogoScene->mapa);
+    jogoView->setBg(jogoScene->cenario);
 }

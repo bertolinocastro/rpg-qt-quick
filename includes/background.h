@@ -31,13 +31,13 @@ public:
     std::string texturaDaCasa(int i, int j);
     void carregaMapa(std::string);
     QPointF player_start_position;
+    char mapa[N_BLOCOS][N_BLOCOS];
 
 protected:
     std::string parse(char token);
 
 private:
     std::map<char, std::string> portais;
-    char mapa[N_BLOCOS][N_BLOCOS];
 
 };
 
