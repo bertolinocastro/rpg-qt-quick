@@ -59,22 +59,9 @@ bool JogoScene::blocked(int x, int y) {
 }
 
 void JogoScene::start_dialog() {
-    QWidget* dialog = new QWidget;
-    dialog->setWindowTitle("Dialog");
-
-    QLabel *label = new QLabel("first line\nsecond line");
-    label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-    label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
-
-    QGridLayout* layout = new QGridLayout();
-    layout->addWidget(label, 1, 1, 1, 3);
-    layout->addWidget(new QPushButton("Continuar"), 2, 3);
-    layout->setAlignment(dialog, Qt::AlignHCenter | Qt::AlignBottom);
-    layout->setContentsMargins(5, 5, 5, 5);
-    dialog->setLayout(layout);
-
-    dialog->move((N_BLOCOS/2)*LADO_BLOCOS - dialog->frameSize().width()/2, (N_BLOCOS/2)*LADO_BLOCOS - dialog->frameSize().height()/2);
-    this->addWidget(dialog);
+    Dialog* cena = new Dialog();
+    cena->move((N_BLOCOS/2)*LADO_BLOCOS - cena->frameSize().width()/2, (N_BLOCOS/2)*LADO_BLOCOS - cena->frameSize().height()/2);
+    this->addWidget(cena);
 
 }
 

@@ -13,7 +13,8 @@ SOURCES += \
     sources/jogoscene.cpp \
     sources/jogoview.cpp \
     sources/main.cpp \
-    sources/map.cpp \
+    sources/background.cpp \
+    sources/dialog.cpp \
     sources/windowprincipal.cpp
 
 INCLUDEPATH += \
@@ -21,7 +22,8 @@ INCLUDEPATH += \
 
 HEADERS += \
     includes/definicoes.h \
-    includes/map.h \
+    includes/background.h \
+    includes/dialog.h \
     includes/windowprincipal.h \
     includes/jogoview.h \
     includes/jogoscene.h \

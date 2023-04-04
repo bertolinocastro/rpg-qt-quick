@@ -7,6 +7,7 @@
 #include <QKeyEvent>
 #include <background.h>
 #include <jogador.h>
+#include <dialog.h>
 
 class JogoScene : public QGraphicsScene
 {
