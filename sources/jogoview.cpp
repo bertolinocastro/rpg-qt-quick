@@ -15,6 +15,8 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QWidget>
+#include <QMap>
+#include <QDir>
 
 
 JogoView::JogoView(QWidget *parent) : QGraphicsView(parent) {
@@ -52,14 +54,21 @@ void JogoView::setScene(QGraphicsScene* scene) {
 
 void JogoView::setBg(Background& mapa) {
 
-    std::string caminhoBase = "resources/";
+    std::string caminhoBase = ROOT_DIR"resources/";
+    QMap<QString, QImage> cache;
+    QImage img;
+
 
     QImage bg(N_BLOCOS*LADO_BLOCOS, N_BLOCOS*LADO_BLOCOS, QImage::Format_ARGB32);
     QPainter painter(&bg);
     for (int i = 0; i < N_BLOCOS; i++){
         for (int j = 0; j < N_BLOCOS; j++){
             std::string textura = mapa.texturaDaCasa(i, j);
-            QImage img(QString::fromStdString(caminhoBase+textura));
+            QString path = QString::fromStdString(caminhoBase+textura);
+            if (!cache.contains(path)){
+                cache[path] = QImage(path);
+            }
+            img = cache[path];
             img = img.scaled(LADO_BLOCOS, LADO_BLOCOS); // fazendo a imagem ocupar 12px no x e y
             painter.drawImage(LADO_BLOCOS*j, LADO_BLOCOS*i, img);
         }

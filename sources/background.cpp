@@ -3,12 +3,14 @@
 #include <fstream>
 #include <iostream>
 //#include <string>
+#include <algorithm>
 
 Background::Background() {
 }
 
 Background::Background(std::string arquivo) {
     carregaMapa(arquivo);
+    posInicialJogador();
 }
 
 std::string Background::texturaDaCasa(int i, int j) {
@@ -17,7 +19,7 @@ std::string Background::texturaDaCasa(int i, int j) {
 
 void Background::carregaMapa(std::string arquivo) {
 
-    std::ifstream file("maps/"+arquivo); // caminho gambiarra, porque o deploy do Qt põe em outra pasta...
+    std::ifstream file(ROOT_DIR"maps/"+arquivo); // caminho gambiarra, porque o deploy do Qt põe em outra pasta...
     std::string linha;
     while(std::getline(file, linha)){
         if (linha.compare("FIM")==0)
@@ -65,4 +67,16 @@ std::string Background::parse(char token) {
         break;
     }
     return caminho;
+}
+
+void Background::posInicialJogador(){
+    char* p = std::find(&mapa[0][0], &mapa[0][0]+N_BLOCOS*N_BLOCOS, 'S');
+
+    int l = std::distance(&mapa[0][0], p);
+    int i = l/N_BLOCOS;
+    int j = l%N_BLOCOS;
+    std::cout << "l "<<l<<" i "<<i<<" j "<<j<<std::endl;
+
+    player_start_position = QPointF(j*LADO_BLOCOS, i*LADO_BLOCOS);
+
 }

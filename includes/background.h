@@ -35,6 +35,7 @@ public:
 
 protected:
     std::string parse(char token);
+    void posInicialJogador();
 
 private:
     std::map<char, std::string> portais;

@@ -21,7 +21,7 @@
 
 JogoScene::JogoScene(std::string file) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOCOS, N_BLOCOS*LADO_BLOCOS) {
     std::cout << " rect da cena " << sceneRect().width() << " " << sceneRect().height() << std::endl;
-    player_start_position = QPointF(2*LADO_BLOCOS,45*LADO_BLOCOS);
+//    player_start_position = QPointF(2*LADO_BLOCOS,45*LADO_BLOCOS);
 
     cenario =  Background(file);
     int n = 48;
@@ -37,7 +37,8 @@ JogoScene::JogoScene(std::string file) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOC
 	}
 
     jogador = new Jogador();
-    jogador->setPos(player_start_position);
+//    jogador->setPos(player_start_position);
+    jogador->setPos(cenario.player_start_position);
     addItem(jogador);
 }
 

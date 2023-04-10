@@ -3,6 +3,7 @@ QT       += core gui widgets
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
+#CONFIG += c++2a
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -15,12 +16,14 @@ SOURCES += \
     sources/main.cpp \
     sources/background.cpp \
     sources/dialog.cpp \
+    sources/classes.cpp \
     sources/windowprincipal.cpp
 
 INCLUDEPATH += \
     $$PWD/includes/
 
 HEADERS += \
+    includes/classes.h \
     includes/definicoes.h \
     includes/background.h \
     includes/dialog.h \
