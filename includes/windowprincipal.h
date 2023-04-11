@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include <QKeyEvent>
 #include <string>
-#include "jogador.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class WindowPrincipal; }
@@ -19,7 +18,7 @@ public:
     ~WindowPrincipal();
 
     void iniciaFase(std::string);
-    void start(std::string);
+    void start(std::string, QString personagem, QString classe);
 
 private:
     Ui::WindowPrincipal *ui;

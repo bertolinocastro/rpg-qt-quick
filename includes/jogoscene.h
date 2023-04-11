@@ -13,7 +13,7 @@ class JogoScene : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    JogoScene(std::string);
+    JogoScene(std::string, QString nome, QString classe);
     void setBg(Background &mapa);
     void keyPressEvent(QKeyEvent* event);
     QPointF player_start_position;

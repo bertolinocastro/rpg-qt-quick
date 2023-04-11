@@ -39,33 +39,38 @@
        <number>0</number>
       </property>
       <widget class="QWidget" name="pageJogo">
-       <layout class="QVBoxLayout" name="verticalLayout_3">
-        <property name="spacing">
+       <widget class="JogoView" name="jogoView">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>256</width>
+          <height>192</height>
+         </rect>
+        </property>
+        <property name="lineWidth">
          <number>0</number>
         </property>
-        <property name="sizeConstraint">
-         <enum>QLayout::SetNoConstraint</enum>
+       </widget>
+       <widget class="PlayerStatus" name="playerStatus">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>200</y>
+          <width>60</width>
+          <height>17</height>
+         </rect>
         </property>
-        <property name="leftMargin">
-         <number>0</number>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
-        <property name="topMargin">
-         <number>0</number>
+        <property name="text">
+         <string>Texto base</string>
         </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="JogoView" name="jogoView">
-          <property name="lineWidth">
-           <number>0</number>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       </widget>
       </widget>
       <widget class="QWidget" name="pageMenuInicial">
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -107,6 +112,69 @@
          </widget>
         </item>
         <item>
+         <widget class="QLineEdit" name="lineEditNomePersonagem">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string extracomment="Nome do Personagem">Nome do Personagem</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="comboBoxClasses">
+          <property name="editable">
+           <bool>false</bool>
+          </property>
+          <property name="currentText">
+           <string>Classe do Personagem</string>
+          </property>
+          <property name="placeholderText">
+           <string extracomment="Classe do Personagem"/>
+          </property>
+          <item>
+           <property name="text">
+            <string>Classe do Personagem</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Mago</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Bruxa</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Cavaleiro</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Princesa</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Aldeao</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Monstro</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Dragao</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="pushButtonNovoJogo">
           <property name="text">
            <string>Novo Jogo</string>
@@ -125,6 +193,11 @@
    <class>JogoView</class>
    <extends>QGraphicsView</extends>
    <header>jogoview.h</header>
+  </customwidget>
+  <customwidget>
+   <class>PlayerStatus</class>
+   <extends>QLabel</extends>
+   <header>playerstatus.h</header>
   </customwidget>
  </customwidgets>
  <resources>

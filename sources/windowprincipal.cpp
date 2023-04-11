@@ -22,10 +22,11 @@ WindowPrincipal::~WindowPrincipal()
 }
 
 void WindowPrincipal::novoJogo(){
+
     std::cout << "Entrou no slot Novo Jogo" <<std::endl;
     ui->stackedWidget->setCurrentIndex(0);
 
-    start("inicial.txt");
+    start("inicial.txt", ui->lineEditNomePersonagem->text(), ui->comboBoxClasses->currentText());
     //iniciaFase("inicial.txt");
 }
 
@@ -50,14 +51,18 @@ void WindowPrincipal::iniciaFase(std::string fase){
 }
 */
 
-void WindowPrincipal::start(std::string fase){
+void WindowPrincipal::start(std::string fase, QString personagem, QString classe){
 
     JogoView* jogoView = ui->jogoView;
     jogoView->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
     //Background mapa = Background(fase);
-    JogoScene* jogoScene = new JogoScene(fase);
+    JogoScene* jogoScene = new JogoScene(fase, personagem, classe);
 
     jogoView->setScene(jogoScene);
     jogoView->setBg(jogoScene->cenario);
+
+    ui->playerStatus->setBoneco(jogoScene->jogador);
+    ui->playerStatus->init();
+
 }

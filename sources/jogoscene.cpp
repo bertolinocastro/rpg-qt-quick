@@ -1,5 +1,6 @@
 #include "jogoscene.h"
 #include "definicoes.h"
+#include "classes.h"
 
 #include <iostream>
 #include <cmath>
@@ -19,7 +20,7 @@
 #include <QPushButton>
 
 
-JogoScene::JogoScene(std::string file) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOCOS, N_BLOCOS*LADO_BLOCOS) {
+JogoScene::JogoScene(std::string file, QString nome, QString classe) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOCOS, N_BLOCOS*LADO_BLOCOS) {
     std::cout << " rect da cena " << sceneRect().width() << " " << sceneRect().height() << std::endl;
 //    player_start_position = QPointF(2*LADO_BLOCOS,45*LADO_BLOCOS);
 
@@ -34,9 +35,9 @@ JogoScene::JogoScene(std::string file) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOC
 			std::cout << cenario.mapa[i][k];
 			if(k==m-1) std::cout << "|";
 		}
-	}
+    }
 
-    jogador = new Jogador();
+    jogador = new Jogador(nome, classe);
 //    jogador->setPos(player_start_position);
     jogador->setPos(cenario.player_start_position);
     addItem(jogador);

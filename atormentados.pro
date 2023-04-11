@@ -17,6 +17,7 @@ SOURCES += \
     sources/background.cpp \
     sources/dialog.cpp \
     sources/classes.cpp \
+    sources/playerstatus.cpp \
     sources/windowprincipal.cpp
 
 INCLUDEPATH += \
@@ -30,7 +31,8 @@ HEADERS += \
     includes/windowprincipal.h \
     includes/jogoview.h \
     includes/jogoscene.h \
-    includes/jogador.h
+    includes/jogador.h \
+    includes/playerstatus.h
 
 FORMS += \
     ui/windowprincipal.ui
