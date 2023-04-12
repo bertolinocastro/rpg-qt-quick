@@ -321,3 +321,34 @@ void Dragao::setFogo(int f) {
 int Dragao::getFogo() {
     return fogo;
 }
+
+int Samurai::getFurtividade() const
+{
+    return furtividade;
+}
+
+void Samurai::setFurtividade(int newFurtividade)
+{
+    furtividade = newFurtividade;
+}
+
+Samurai::Samurai() : SerHumano()
+{
+
+}
+
+Samurai::Samurai(std::string n) : SerHumano(n)
+{
+    destreza = 15;
+    furtividade = 5;
+}
+
+int Samurai::getDestreza() const
+{
+    return destreza;
+}
+
+void Samurai::setDestreza(int newDestreza)
+{
+    destreza = newDestreza;
+}

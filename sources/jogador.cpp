@@ -10,21 +10,37 @@ Jogador::Jogador(QString nome, QString classe)
     this->nome = nome;
     this->classe = classe;
     if(classe == "Mago"){
-        boneco = new Mago(nome.toStdString());
+        Mago* bnco = new Mago(nome.toStdString());
+        boneco = bnco;
+        caminho_sprite = bnco->caminho_sprite;
     }else    if(classe == "Bruxa"){
-        boneco = new Bruxa(nome.toStdString());
+        Bruxa* bnco = new Bruxa(nome.toStdString());
+        boneco = bnco;
+        caminho_sprite = bnco->caminho_sprite;
     }else    if(classe == "Cavaleiro"){
-        boneco = new Cavaleiro(nome.toStdString());
+        Cavaleiro* bnco = new Cavaleiro(nome.toStdString());
+        boneco = bnco;
+        caminho_sprite = bnco->caminho_sprite;
     }else    if(classe == "Princesa"){
-        boneco = new Princesa(nome.toStdString());
+        Princesa* bnco = new Princesa(nome.toStdString());
+        boneco = bnco;
+        caminho_sprite = bnco->caminho_sprite;
     }else    if(classe == "Aldeao"){
-        boneco = new Aldeao(nome.toStdString());
+        Aldeao* bnco = new Aldeao(nome.toStdString());
+        boneco = bnco;
+        caminho_sprite = bnco->caminho_sprite;
     }else    if(classe == "Monstro"){
-        boneco = new Monstro(nome.toStdString());
+        Monstro* bnco = new Monstro(nome.toStdString());
+        boneco = bnco;
+        caminho_sprite = bnco->caminho_sprite;
     }else    if(classe == "Dragao"){
-        boneco = new Dragao(nome.toStdString());
+        Dragao* bnco = new Dragao(nome.toStdString());
+        boneco = bnco;
+        caminho_sprite = bnco->caminho_sprite;
     }else if (classe == "Samurai"){
-        // TODO: criar classe Samurai e fazer as paradinhas aqui
+        Samurai* bnco = new Samurai(nome.toStdString());
+        boneco = bnco;
+        caminho_sprite = bnco->caminho_sprite;
     }
 
 }

@@ -1,6 +1,7 @@
 #ifndef CLASSES_H
 #define CLASSES_H
 #include <string>
+#include "definicoes.h"
 
 /*
  * Personagens: mago, bruxa, cavaleiro, princesa, aldeao, monstro, dragao.
@@ -21,6 +22,8 @@ public:
     int getVida();
     void setForca(int f);
     int getForca();
+
+    std::string caminho_sprite = ROOT_DIR"resources/samurai.png";
 };
 
 
@@ -60,6 +63,8 @@ public:
 
     void setMagia(int m);
     int getMagia();
+
+    std::string caminho_sprite = ROOT_DIR"resources/mago.png";
 };
 
 class Bruxa : public SerHumano {
@@ -72,6 +77,7 @@ public:
 
     void setMagia(int m);
     int getMagia();
+    std::string caminho_sprite = ROOT_DIR"resources/bruxa.png";
 };
 
 
@@ -90,6 +96,8 @@ public:
     int getArmadura();
 
     virtual std::string responda(std::string s);
+
+    std::string caminho_sprite = ROOT_DIR"resources/cavaleiro.png";
 };
 
 class Princesa : public SerHumano {
@@ -111,6 +119,8 @@ public:
     int getDinheiro();
 
     std::string responda(std::string s);
+
+    std::string caminho_sprite = ROOT_DIR"resources/princesa.png";
 };
 
 class Aldeao : public SerHumano {
@@ -129,7 +139,28 @@ public:
     int getHonestidade();
 
     std::string responda(std::string s);
+
+    std::string caminho_sprite = ROOT_DIR"resources/aldeao.png";
 };
+
+class Samurai : public SerHumano {
+protected:
+    int destreza;
+    int furtividade;
+
+public:
+    Samurai();
+    Samurai(std::string n);
+
+    int getDestreza() const;
+    void setDestreza(int newDestreza);
+    int getFurtividade() const;
+    void setFurtividade(int newFurtividade);
+
+    std::string caminho_sprite = ROOT_DIR"resources/cavaleiro.png";
+
+};
+
 
 class Monstro : public FormaDeVida {
 protected:
@@ -142,6 +173,7 @@ public:
 
     void setSimpatia(int s);
     int getSimpatia();
+    std::string caminho_sprite = ROOT_DIR"resources/monstro.png";
 };
 
 class Dragao : public Monstro {
@@ -155,6 +187,8 @@ public:
 
     void setFogo(int f);
     int getFogo();
+
+    std::string caminho_sprite = ROOT_DIR"resources/dragao.png";
 };
 
 
