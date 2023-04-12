@@ -37,34 +37,14 @@ Dialog::Dialog(std::string filename) {
     std::string delimiter = "-+";
     text_it = 0;
     full_text = split (file, delimiter);
-    std::cout << "Fulltext" << std::endl;
-    for (auto i : full_text) std::cout << i << std::endl;
-
-    /*
-    std::ifstream file(ROOT_DIR"dialogs/"+filename);
-    std::string line;
-    if (file.is_open()) {
-        while ( std::getline (file,line) )
-        {
-        linha.copy(mapa[i], N_BLOCOS);
-        std::cout << line << '\n';
-        }
-        file.close();
-    }*/
 
     std::cout << "iterator" << text_it << std::endl;
     name = new QLabel();
-    //if (std::getline (file,line)) {
     name->setText(QString(full_text[text_it++].c_str()));
-    std::cout << "iterator" << text_it << std::endl;
-    //}
     lines = new QLabel();
-    //if (std::getline (file,line)) {
     lines->setText(QString(full_text[text_it++].c_str()));
-    std::cout << "iterator" << text_it << std::endl;
-    //}
     lines->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-    lines->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
+    lines->setAlignment(Qt::AlignBottom);
 
 
     layout = new QGridLayout();
@@ -84,9 +64,7 @@ Dialog::Dialog(std::string filename) {
 
 void Dialog::nextSlot() {
     if (text_it < full_text.size()) name->setText(QString(full_text[text_it++].c_str())); else this->close();
-    std::cout << "iterator" << text_it << std::endl;
     if (text_it < full_text.size()) lines->setText(QString(full_text[text_it++].c_str())); else this->close();
-    std::cout << "iterator" << text_it << std::endl;
 
     this->update();
 }
