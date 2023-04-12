@@ -22,7 +22,8 @@ public:
 
 private:
     bool blocked(int x, int y);
-    void start_dialog();
+    bool special(int x, int y);
+    void start_dialog(std::string);
 };
 
 #endif // JOGOSCENE_H
