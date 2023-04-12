@@ -22,6 +22,7 @@ public:
 
 private:
     bool blocked(int x, int y);
+    bool special(int x, int y);
     void start_dialog();
 };
 

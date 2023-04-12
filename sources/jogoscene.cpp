@@ -60,6 +60,16 @@ bool JogoScene::blocked(int x, int y) {
         }
 }
 
+bool JogoScene::special(int x, int y) {
+    char token = cenario.mapa[y][x];
+    switch(token){
+        case 'C':
+            return true;
+        default:
+            return false;
+        }
+}
+
 void JogoScene::start_dialog() {
     Dialog* cena = new Dialog();
     cena->move((N_BLOCOS/2)*LADO_BLOCOS - cena->frameSize().width()/2, (N_BLOCOS/2)*LADO_BLOCOS - cena->frameSize().height()/2);
@@ -97,7 +107,9 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
     case Qt::Key_Return:
     case Qt::Key_E:
         std::cout << "Enter Pressed" << std::endl;
-        JogoScene::start_dialog();
+        if (JogoScene::special(std::floor(jogador->scenePos().x()/LADO_BLOCOS), std::floor((jogador->scenePos().y())/LADO_BLOCOS))) {
+            JogoScene::start_dialog();
+        }
         break;
     }
 
