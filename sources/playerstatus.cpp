@@ -32,9 +32,9 @@ void PlayerStatus::atualizaConteudo()
 {
 
     this->setText(QString(
-            "%1 %2\n"\
-            "Vida: %3\n"\
-            "Força: %4\n"
+            " %1 %2\n"\
+            " Vida: %3\n"\
+            " Força: %4\n"
     )
     .arg(boneco->classe)
     .arg(nome)

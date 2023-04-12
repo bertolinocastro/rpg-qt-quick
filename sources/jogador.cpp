@@ -23,7 +23,9 @@ Jogador::Jogador(QString nome, QString classe)
         boneco = new Monstro(nome.toStdString());
     }else    if(classe == "Dragao"){
         boneco = new Dragao(nome.toStdString());
-    }else{}
+    }else if (classe == "Samurai"){
+        // TODO: criar classe Samurai e fazer as paradinhas aqui
+    }
 
 }
 
