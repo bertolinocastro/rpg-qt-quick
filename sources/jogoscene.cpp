@@ -60,55 +60,58 @@ bool JogoScene::blocked(int x, int y) {
         }
 }
 
-bool JogoScene::special(int x, int y) {
-    char token = cenario.mapa[y][x];
-    switch(token){
-        case 'C':
-            return true;
-        default:
-            return false;
-        }
-}
-
-void JogoScene::start_dialog() {
-    Dialog* cena = new Dialog();
+void JogoScene::start_dialog(std::string filename) {
+    Dialog* cena;
+    if (filename != "") {
+        cena = new Dialog(filename);
+    } else {
+        cena = new Dialog();
+    }
     cena->move((N_BLOCOS/2)*LADO_BLOCOS - cena->frameSize().width()/2, (N_BLOCOS/2)*LADO_BLOCOS - cena->frameSize().height()/2);
     this->addWidget(cena);
-
 }
 
 void JogoScene::keyPressEvent(QKeyEvent* event) {
+    int x = jogador->scenePos().x();
+    int y = jogador->scenePos().y();
     switch(event->key()){
     case Qt::Key_Up:
     case Qt::Key_W:
-        if (!JogoScene::blocked(std::floor(jogador->scenePos().x()/LADO_BLOCOS), std::floor((jogador->scenePos().y()-LADO_BLOCOS)/LADO_BLOCOS))) {
-            jogador->setPos(jogador->scenePos().x(), jogador->scenePos().y()-LADO_BLOCOS);
+        if (!JogoScene::blocked(std::floor(x/LADO_BLOCOS), std::floor((y-LADO_BLOCOS)/LADO_BLOCOS))) {
+            jogador->setPos(x, y-LADO_BLOCOS);
         }
         break;
     case Qt::Key_Down:
     case Qt::Key_S:
-        if (!JogoScene::blocked(std::floor(jogador->scenePos().x()/LADO_BLOCOS), std::floor((jogador->scenePos().y()+LADO_BLOCOS)/LADO_BLOCOS))) {
-            jogador->setPos(jogador->scenePos().x(), jogador->scenePos().y()+LADO_BLOCOS);
+        if (!JogoScene::blocked(std::floor(x/LADO_BLOCOS), std::floor((y+LADO_BLOCOS)/LADO_BLOCOS))) {
+            jogador->setPos(x, y+LADO_BLOCOS);
         }
         break;
     case Qt::Key_Right:
     case Qt::Key_D:
-        if (!JogoScene::blocked(std::floor((jogador->scenePos().x()+LADO_BLOCOS)/LADO_BLOCOS), std::floor(jogador->scenePos().y()/LADO_BLOCOS))) {
-            jogador->setPos(jogador->scenePos().x()+LADO_BLOCOS, jogador->scenePos().y());
+        if (!JogoScene::blocked(std::floor((x+LADO_BLOCOS)/LADO_BLOCOS), std::floor(y/LADO_BLOCOS))) {
+            jogador->setPos(x+LADO_BLOCOS, y);
         }
         break;
     case Qt::Key_Left:
     case Qt::Key_A:
-        if (!JogoScene::blocked(std::floor((jogador->scenePos().x()-LADO_BLOCOS)/LADO_BLOCOS), std::floor(jogador->scenePos().y()/LADO_BLOCOS))) {
-            jogador->setPos(jogador->scenePos().x()-LADO_BLOCOS, jogador->scenePos().y());
+        if (!JogoScene::blocked(std::floor((x-LADO_BLOCOS)/LADO_BLOCOS), std::floor(y/LADO_BLOCOS))) {
+            jogador->setPos(x-LADO_BLOCOS, y);
         }
         break;
     case Qt::Key_Enter:
     case Qt::Key_Return:
     case Qt::Key_E:
         std::cout << "Enter Pressed" << std::endl;
-        if (JogoScene::special(std::floor(jogador->scenePos().x()/LADO_BLOCOS), std::floor((jogador->scenePos().y())/LADO_BLOCOS))) {
-            JogoScene::start_dialog();
+        char token = cenario.mapa[y/LADO_BLOCOS][x/LADO_BLOCOS];
+        std::cout << "Token " << token << std::endl;
+        switch(token){
+            case 'C':
+                JogoScene::start_dialog("coin.txt");
+                break;
+            default:
+                JogoScene::start_dialog("");
+                break;
         }
         break;
     }
