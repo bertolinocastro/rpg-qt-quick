@@ -2,12 +2,14 @@
 #define DIALOG_H
 
 #include <string>
+#include <QObject>
 #include <QWidget>
 #include <QLabel>
 #include <QGridLayout>
 
 class Dialog : public QWidget
 {
+    Q_OBJECT
 public:
     Dialog();
     Dialog(std::string);
@@ -17,7 +19,6 @@ public:
 
 public slots:
    void nextSlot();
-   void skipSlot();
 };
 
 #endif // DIALOG_H

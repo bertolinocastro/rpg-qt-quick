@@ -34,23 +34,28 @@ Dialog::Dialog(std::string filename) {
 
     std::ifstream file(ROOT_DIR"dialogs/"+filename);
     std::string line;
+    /*
     if (file.is_open()) {
         while ( std::getline (file,line) )
         {
         std::cout << line << '\n';
         }
         file.close();
-    }
+    }*/
 
     name = new QLabel();
-    name->setText("Moeda");
+    if (std::getline (file,line)) {
+        name->setText(QString(line.c_str()));
+    }
     lines = new QLabel();
-    lines->setText("Lorem\nIpsum");
+    if (std::getline (file,line)) {
+        lines->setText(QString(line.c_str()));
+    }
     lines->setFrameStyle(QFrame::Panel | QFrame::Sunken);
     lines->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
 
 
-     layout = new QGridLayout();
+    layout = new QGridLayout();
     layout->addWidget(name, 1, 1, 1, 3);
     layout->addWidget(lines, 2, 1, 1, 3);
 
@@ -68,9 +73,4 @@ Dialog::Dialog(std::string filename) {
 void Dialog::nextSlot()
 {
    this->update();
-}
-
-void Dialog::skipSlot()
-{
-   this->close();
 }
