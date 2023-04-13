@@ -27,7 +27,6 @@ void WindowPrincipal::novoJogo(){
     ui->stackedWidget->setCurrentIndex(0);
 
     start("castle_in.txt", ui->lineEditNomePersonagem->text(), ui->comboBoxClasses->currentText());
-    //iniciaFase("inicial.txt");
 }
 
 void WindowPrincipal::start(std::string fase, QString personagem, QString classe){

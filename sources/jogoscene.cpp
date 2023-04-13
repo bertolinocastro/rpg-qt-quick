@@ -72,6 +72,17 @@ void JogoScene::start_dialog(std::string filename) {
     this->addWidget(cena);
 }
 
+void JogoScene::death_event() {
+    Background last_location = Background("goddess_map.txt");
+    cenario = last_location;
+    /*
+     * MUDAR CENÁRIO
+     */
+    JogoScene::start_dialog("death.txt");
+
+    //JogoScene::start_dialog("goddess.txt");
+}
+
 void JogoScene::keyPressEvent(QKeyEvent* event) {
     int x = jogador->scenePos().x();
     int y = jogador->scenePos().y();
@@ -113,8 +124,13 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
                 break;
             case 'D':
             case 'F':
-                JogoScene::start_dialog("fight.txt");
                 jogador->setHP(std::max(0, jogador->getHP()-30));
+                // ATUALIZAR PLAYER STATUS
+                if (jogador->getHP() == 0) {
+                    death_event();
+                    return;
+                }
+                JogoScene::start_dialog("fight.txt");
                 break;
             default:
                 break;
@@ -125,8 +141,13 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
                 break;
             case 'D':
             case 'F':
-                JogoScene::start_dialog("fight.txt");
                 jogador->setHP(std::max(0, jogador->getHP()-30));
+                // ATUALIZAR PLAYER STATUS
+                if (jogador->getHP() == 0) {
+                    death_event();
+                    return;
+                }
+                JogoScene::start_dialog("fight.txt");
                 break;
             default:
                 break;
@@ -137,8 +158,13 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
                 break;
             case 'D':
             case 'F':
-                JogoScene::start_dialog("fight.txt");
                 jogador->setHP(std::max(0, jogador->getHP()-30));
+                // ATUALIZAR PLAYER STATUS
+                if (jogador->getHP() == 0) {
+                    death_event();
+                    return;
+                }
+                JogoScene::start_dialog("fight.txt");
                 break;
             default:
                 break;
@@ -149,8 +175,13 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
                 break;
             case 'D':
             case 'F':
-                JogoScene::start_dialog("fight.txt");
                 jogador->setHP(std::max(0, jogador->getHP()-30));
+                // ATUALIZAR PLAYER STATUS
+                if (jogador->getHP() == 0) {
+                    death_event();
+                    return;
+                }
+                JogoScene::start_dialog("fight.txt");
                 break;
             default:
                 break;
