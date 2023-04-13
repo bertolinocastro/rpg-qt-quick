@@ -26,30 +26,9 @@ void WindowPrincipal::novoJogo(){
     std::cout << "Entrou no slot Novo Jogo" <<std::endl;
     ui->stackedWidget->setCurrentIndex(0);
 
-    start("inicial.txt", ui->lineEditNomePersonagem->text(), ui->comboBoxClasses->currentText());
+    start("castle_in.txt", ui->lineEditNomePersonagem->text(), ui->comboBoxClasses->currentText());
     //iniciaFase("inicial.txt");
 }
-
-/*
-void WindowPrincipal::iniciaFase(std::string fase){
-
-    Map mapa = Map(fase);
-
-    JogoView* jogoView = ui->jogoView;
-    jogoView->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-
-    JogoScene* jogoScene = new JogoScene(mapa);
-
-    jogoView->setScene(jogoScene);
-    jogoView->setBg(mapa);
-
-
-    Jogador* jogador = new Jogador();
-    jogoScene->addItem(jogador); // TODO: Continuar dessa desgraça aqui. Não tô conseguindo compilar o código pra adicionar o player como uma subclasse do QGraphicsItem
-
-//    conectaJogador(jogador);
-}
-*/
 
 void WindowPrincipal::start(std::string fase, QString personagem, QString classe){
 

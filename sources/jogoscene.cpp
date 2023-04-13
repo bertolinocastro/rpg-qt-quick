@@ -50,7 +50,6 @@ bool JogoScene::blocked(int x, int y) {
         case 'B':
         case 'C':
         case 'S':
-        case 'T':
             return false;
         case 'W':
         case 'R':
@@ -87,30 +86,67 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
             jogador->setPos(x, y+LADO_BLOCOS);
         }
         break;
-    case Qt::Key_Right:
-    case Qt::Key_D:
-        if (!JogoScene::blocked(std::floor((x+LADO_BLOCOS)/LADO_BLOCOS), std::floor(y/LADO_BLOCOS))) {
-            jogador->setPos(x+LADO_BLOCOS, y);
-        }
-        break;
     case Qt::Key_Left:
     case Qt::Key_A:
         if (!JogoScene::blocked(std::floor((x-LADO_BLOCOS)/LADO_BLOCOS), std::floor(y/LADO_BLOCOS))) {
             jogador->setPos(x-LADO_BLOCOS, y);
         }
         break;
+    case Qt::Key_Right:
+    case Qt::Key_D:
+        if (!JogoScene::blocked(std::floor((x+LADO_BLOCOS)/LADO_BLOCOS), std::floor(y/LADO_BLOCOS))) {
+            jogador->setPos(x+LADO_BLOCOS, y);
+        }
+        break;
     case Qt::Key_Enter:
     case Qt::Key_Return:
     case Qt::Key_E:
-        std::cout << "Enter Pressed" << std::endl;
-        char token = cenario.mapa[y/LADO_BLOCOS][x/LADO_BLOCOS];
-        std::cout << "Token " << token << std::endl;
-        switch(token){
-            case 'C':
-                JogoScene::start_dialog("coin.txt");
+        char token_u = cenario.mapa[(y-LADO_BLOCOS)/LADO_BLOCOS][x/LADO_BLOCOS];
+        char token_d = cenario.mapa[(y+LADO_BLOCOS)/LADO_BLOCOS][x/LADO_BLOCOS];
+        char token_l = cenario.mapa[y/LADO_BLOCOS][(x-LADO_BLOCOS)/LADO_BLOCOS];
+        char token_r = cenario.mapa[y/LADO_BLOCOS][(x+LADO_BLOCOS)/LADO_BLOCOS];
+        switch(token_u){
+            case 'N':
+                JogoScene::start_dialog("other_soldier.txt");
+                break;
+            case 'D':
+            case 'F':
+                JogoScene::start_dialog("fight.txt");
                 break;
             default:
-                JogoScene::start_dialog("");
+                break;
+        }
+        switch(token_d){
+            case 'N':
+                JogoScene::start_dialog("other_soldier.txt");
+                break;
+            case 'D':
+            case 'F':
+                JogoScene::start_dialog("fight.txt");
+                break;
+            default:
+                break;
+        }
+        switch(token_l){
+            case 'N':
+                JogoScene::start_dialog("other_soldier.txt");
+                break;
+            case 'D':
+            case 'F':
+                JogoScene::start_dialog("fight.txt");
+                break;
+            default:
+                break;
+        }
+        switch(token_r){
+            case 'N':
+                JogoScene::start_dialog("other_soldier.txt");
+                break;
+            case 'D':
+            case 'F':
+                JogoScene::start_dialog("fight.txt");
+                break;
+            default:
                 break;
         }
         break;

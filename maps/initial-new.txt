@@ -1,0 +1,53 @@
+1=castle_in.txt
+2=castle_in.txt
+3=castle_in.txt
+4=castle_in.txt
+FIM
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+#################################################
+GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+BGBGBGBGBGBGBGBGBGBGBGB12BGBGBGBGBGBGBGBGBGBGBGBG
+GBGBGBGBGBGBGBGBGBGBGBG34BGBGBGBGBGBGBGBGBGBGBGBG
+BGBGBGBGBGBGBGBGBGBGBGB  BGBGBGBGBGBGBGBGBGBGBGBG
+GBGBGBGBGBGBGBGBGBGBGBG  GBGBGBGBGBGBGBGBGBGBGBGB
+BGBGBGBGBGBGBGBGBGBGBGB  BGBGBGBGBGBGBGBGBGBGBGBG
+GBGBGBGBGBGBGBGBGBGBGBG  GBGBGBGBGBGBGBGBGBGBGBGB
+BGBGBGBGBGBGBGBGBGBGBGB  BGBGBGBGBGBGBGBGBGBGBGBG
+GBGBGBGBGBGBGBGBGBGBGBN  GBGBGBGBGBGBGBGBGBGBGBGB
+BGBGBGBGBGBGBGBGBGBGBGB  BGBGBGBGBGBGBGBGBGBGBGBG
+GBGBGBGBGBGBGBGBGBGBGBG  GBGBGBGBGBGBGBGBGBGBGBGB
+BGBGBGBGBGBGBGBGBGBGBGB  BGBGBGBGBGBGBGBGBGBGBGBG
+GBGBGBGBGBGBGBGBGBGBGBG  GBGBGBGBGBGBGBGBGBGBGBGB
+BGBGBGBGBGBGBGBGBGBGBGB  BGBGBGBGBGBGBGBGBGBGBGBG
+GBGBGBGBGBGBGBGBGBGBGBG  GBGBGBGBGBGBGBGBGBGBGBGB
+BGBGBGBGBGBGBGBGBGBGBGB  BGBGBGBGBGBGBGBGBGBGBGBG
+GBGBGBGBGBGBGBGBGBGBGBG  GBGBGBGBGBGBGBGBGBGBGBGB
+BGBGBGBGBGBGBGBGBGBGBGB  BGBGBGBGBGBGBGBGBGBGBGBG
+GBGBGBGBGBGBGBGBGBGBGBG  GBGBGBGBGBGBGBGBGBGBGBGB
+BGBGBGBGBGBGBGBGBGBGBGB  BGBGBGBGBGBGBGBGBGBGBGBG
+GBGBGBGBGBGBGBGBGBGBGBG  GBGBGBGBGBGBGBGBGBGBGBGB
+BGBGBGBGBGBGBGBGBGBGBGB  BGBGBGBGBGBGBGBGBGBGBGBG
+GBGBGBGBGBGBGBGBGBGBGBGS GBGBGBGBGBGBGBGBGBGBGBGB
+BGBGBGBGBGBGBGBGBGBGBGB  BGBGBGBGBGBGBGBGBGBGBGBG

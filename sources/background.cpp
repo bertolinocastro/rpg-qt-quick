@@ -49,7 +49,11 @@ std::string Background::parse(char token) {
         caminho += "tile.png";
         break;
     case 'F':
-
+        caminho += "demon1.png";
+        break;
+    case 'D':
+        caminho += "demon2.png";
+        break;
     case 'T':
         caminho += "tree.png";
         break;
@@ -60,7 +64,25 @@ std::string Background::parse(char token) {
         caminho += "river.png";
         break;
     case 'C':
-        caminho += "coin.png";
+        caminho += "castle.png";
+        break;
+    case '1':
+        caminho += "castle-1.png";
+        break;
+    case '2':
+        caminho += "castle-2.png";
+        break;
+    case '3':
+        caminho += "castle-3.png";
+        break;
+    case '4':
+        caminho += "castle-4.png";
+        break;
+    case 'G':
+        caminho += "grass-red.png";
+        break;
+    case 'N':
+        caminho += "warrior.png";
         break;
     default:
         caminho += "black-square.png";

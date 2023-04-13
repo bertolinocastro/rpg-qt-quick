@@ -18,8 +18,6 @@ public:
     FormaDeVida* boneco;
     QString nome;
     QString classe;
-private:
-    std::string caminho_sprite = ROOT_DIR"resources/samurai.png";
 };
 
 #endif // JOGADOR_H

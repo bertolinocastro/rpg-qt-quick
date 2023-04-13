@@ -16,7 +16,7 @@
  * 'T' = Tree, árvore (intransponível?)
  * 'B' = Bush, mato (transponível)
  * 'R' = River, rio ou água (intransponível)
- * 'C' = Coin, moeda no chão
+ * 'C' = Castle, castelo
  * Quais outras?
  *
  */
