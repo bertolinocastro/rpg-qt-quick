@@ -139,37 +139,12 @@
           </item>
           <item>
            <property name="text">
-            <string>Mago</string>
+            <string>Ninja</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>Bruxa</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Cavaleiro</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Princesa</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Aldeao</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Monstro</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Dragao</string>
+            <string>Místico</string>
            </property>
           </item>
          </widget>
@@ -205,3 +180,4 @@
  </resources>
  <connections/>
 </ui>
+

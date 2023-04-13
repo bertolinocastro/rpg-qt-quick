@@ -25,7 +25,7 @@ void PlayerStatus::init(){
 
 void PlayerStatus::setBoneco(Jogador* boneco){
     this->boneco = boneco;
-    nome = QString::fromStdString(boneco->boneco->getNome());
+    nome = boneco->getName();
 }
 
 void PlayerStatus::atualizaConteudo()
@@ -38,7 +38,7 @@ void PlayerStatus::atualizaConteudo()
     )
     .arg(boneco->classe)
     .arg(nome)
-    .arg(boneco->boneco->getVida())
-    .arg(boneco->boneco->getForca()));
+    .arg(boneco->getHP())
+    .arg(boneco->getMP()));
 
 }
