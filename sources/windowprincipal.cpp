@@ -26,7 +26,7 @@ void WindowPrincipal::novoJogo(){
     std::cout << "Entrou no slot Novo Jogo" <<std::endl;
     ui->stackedWidget->setCurrentIndex(0);
 
-    start("castle_in.txt", ui->lineEditNomePersonagem->text(), ui->comboBoxClasses->currentText());
+    start("initial-new.txt", ui->lineEditNomePersonagem->text(), ui->comboBoxClasses->currentText());
 }
 
 void WindowPrincipal::start(std::string fase, QString personagem, QString classe){

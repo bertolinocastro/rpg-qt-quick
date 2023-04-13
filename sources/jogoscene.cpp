@@ -72,6 +72,15 @@ void JogoScene::start_dialog(std::string filename) {
     this->addWidget(cena);
 }
 
+void JogoScene::castle_event() {
+    Background castle = Background("castle_in.txt");
+    cenario = castle;
+    /*
+     * MUDAR CENÁRIO
+     */
+    std::cout << "Inside Castle" << std::endl;
+
+}
 void JogoScene::death_event() {
     Background last_location = Background("goddess_map.txt");
     cenario = last_location;
@@ -81,6 +90,14 @@ void JogoScene::death_event() {
     JogoScene::start_dialog("death.txt");
 
     //JogoScene::start_dialog("goddess.txt");
+}
+
+void print_map(std::string_view comment, const std::map<char, std::string>& m)
+{
+    std::cout << comment;
+    for (const auto& [key, value] : m)
+        std::cout << '[' << key << "] = " << value << "; ";
+    std::cout << '\n';
 }
 
 void JogoScene::keyPressEvent(QKeyEvent* event) {
@@ -132,6 +149,13 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
                 }
                 JogoScene::start_dialog("fight.txt");
                 break;
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+                print_map("Portais: ", cenario.portais);
+                castle_event();
+            break;
             default:
                 break;
         }
@@ -149,6 +173,13 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
                 }
                 JogoScene::start_dialog("fight.txt");
                 break;
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+                print_map("Portais: ", cenario.portais);
+                castle_event();
+            break;
             default:
                 break;
         }
@@ -166,6 +197,13 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
                 }
                 JogoScene::start_dialog("fight.txt");
                 break;
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+                print_map("Portais: ", cenario.portais);
+                castle_event();
+            break;
             default:
                 break;
         }
@@ -183,6 +221,13 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
                 }
                 JogoScene::start_dialog("fight.txt");
                 break;
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+                print_map("Portais: ", cenario.portais);
+                castle_event();
+            break;
             default:
                 break;
         }

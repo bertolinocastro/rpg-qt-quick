@@ -32,13 +32,11 @@ public:
     void carregaMapa(std::string);
     QPointF player_start_position;
     char mapa[N_BLOCOS][N_BLOCOS];
+    std::map<char, std::string> portais;
 
 protected:
     std::string parse(char token);
     void posInicialJogador();
-
-private:
-    std::map<char, std::string> portais;
 
 };
 
