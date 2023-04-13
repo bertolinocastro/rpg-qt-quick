@@ -22,6 +22,8 @@
 #include <QPushButton>
 
 
+JogoScene::JogoScene() {}
+
 JogoScene::JogoScene(std::string file, QString nome, QString classe) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOCOS, N_BLOCOS*LADO_BLOCOS) {
     std::cout << " rect da cena " << sceneRect().width() << " " << sceneRect().height() << std::endl;
 //    player_start_position = QPointF(2*LADO_BLOCOS,45*LADO_BLOCOS);
@@ -72,26 +74,6 @@ void JogoScene::start_dialog(std::string filename) {
     this->addWidget(cena);
 }
 
-void JogoScene::castle_event() {
-    Background castle = Background("castle_in.txt");
-    cenario = castle;
-    /*
-     * MUDAR CENÁRIO
-     */
-    std::cout << "Inside Castle" << std::endl;
-
-}
-void JogoScene::death_event() {
-    Background last_location = Background("goddess_map.txt");
-    cenario = last_location;
-    /*
-     * MUDAR CENÁRIO
-     */
-    JogoScene::start_dialog("death.txt");
-
-    //JogoScene::start_dialog("goddess.txt");
-}
-
 void print_map(std::string_view comment, const std::map<char, std::string>& m)
 {
     std::cout << comment;
@@ -126,110 +108,6 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
     case Qt::Key_D:
         if (!JogoScene::blocked(std::floor((x+LADO_BLOCOS)/LADO_BLOCOS), std::floor(y/LADO_BLOCOS))) {
             jogador->setPos(x+LADO_BLOCOS, y);
-        }
-        break;
-    case Qt::Key_Enter:
-    case Qt::Key_Return:
-    case Qt::Key_E:
-        char token_u = cenario.mapa[(y-LADO_BLOCOS)/LADO_BLOCOS][x/LADO_BLOCOS];
-        char token_d = cenario.mapa[(y+LADO_BLOCOS)/LADO_BLOCOS][x/LADO_BLOCOS];
-        char token_l = cenario.mapa[y/LADO_BLOCOS][(x-LADO_BLOCOS)/LADO_BLOCOS];
-        char token_r = cenario.mapa[y/LADO_BLOCOS][(x+LADO_BLOCOS)/LADO_BLOCOS];
-        switch(token_u){
-            case 'N':
-                JogoScene::start_dialog("other_soldier.txt");
-                break;
-            case 'D':
-            case 'F':
-                jogador->setHP(std::max(0, jogador->getHP()-30));
-                // ATUALIZAR PLAYER STATUS
-                if (jogador->getHP() == 0) {
-                    death_event();
-                    return;
-                }
-                JogoScene::start_dialog("fight.txt");
-                break;
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-                print_map("Portais: ", cenario.portais);
-                castle_event();
-            break;
-            default:
-                break;
-        }
-        switch(token_d){
-            case 'N':
-                JogoScene::start_dialog("other_soldier.txt");
-                break;
-            case 'D':
-            case 'F':
-                jogador->setHP(std::max(0, jogador->getHP()-30));
-                // ATUALIZAR PLAYER STATUS
-                if (jogador->getHP() == 0) {
-                    death_event();
-                    return;
-                }
-                JogoScene::start_dialog("fight.txt");
-                break;
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-                print_map("Portais: ", cenario.portais);
-                castle_event();
-            break;
-            default:
-                break;
-        }
-        switch(token_l){
-            case 'N':
-                JogoScene::start_dialog("other_soldier.txt");
-                break;
-            case 'D':
-            case 'F':
-                jogador->setHP(std::max(0, jogador->getHP()-30));
-                // ATUALIZAR PLAYER STATUS
-                if (jogador->getHP() == 0) {
-                    death_event();
-                    return;
-                }
-                JogoScene::start_dialog("fight.txt");
-                break;
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-                print_map("Portais: ", cenario.portais);
-                castle_event();
-            break;
-            default:
-                break;
-        }
-        switch(token_r){
-            case 'N':
-                JogoScene::start_dialog("other_soldier.txt");
-                break;
-            case 'D':
-            case 'F':
-                jogador->setHP(std::max(0, jogador->getHP()-30));
-                // ATUALIZAR PLAYER STATUS
-                if (jogador->getHP() == 0) {
-                    death_event();
-                    return;
-                }
-                JogoScene::start_dialog("fight.txt");
-                break;
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-                print_map("Portais: ", cenario.portais);
-                castle_event();
-            break;
-            default:
-                break;
         }
         break;
     }

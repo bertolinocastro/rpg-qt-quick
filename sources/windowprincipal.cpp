@@ -37,6 +37,7 @@ void WindowPrincipal::start(std::string fase, QString personagem, QString classe
     //Background mapa = Background(fase);
     JogoScene* jogoScene = new JogoScene(fase, personagem, classe);
 
+    jogoView->setCenaAtual(jogoScene);
     jogoView->setScene(jogoScene);
     jogoView->setBg(jogoScene->cenario);
 

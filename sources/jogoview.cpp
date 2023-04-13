@@ -22,6 +22,10 @@
 JogoView::JogoView(QWidget *parent) : QGraphicsView(parent) {
 }
 
+void JogoView::setCenaAtual(JogoScene *cena) {
+    cena_atual = cena;
+}
+
 void JogoView::setScene(QGraphicsScene* scene) {
     QGraphicsView::setScene(scene);
 
@@ -94,8 +98,136 @@ void JogoView::setBg(Background& mapa) {
 
 }
 
+void JogoView::castle_event() {
+    JogoScene* jogoScene = new JogoScene("castle_in.txt", cena_atual->jogador->name, cena_atual->jogador->classe);
+    this->setCenaAtual(jogoScene);
+    this->setScene(jogoScene);
+    this->setBg(jogoScene->cenario);
+    std::cout << "Inside Castle" << std::endl;
+
+}
+void JogoView::death_event() {
+    JogoScene* jogoScene = new JogoScene("goddess_map.txt", cena_atual->jogador->name, cena_atual->jogador->classe);
+    this->setCenaAtual(jogoScene);
+    this->setScene(jogoScene);
+    this->setBg(jogoScene->cenario);
+    std::cout << "Found Death" << std::endl;
+    jogoScene->start_dialog("death.txt");
+}
+
 void JogoView::keyPressEvent(QKeyEvent *event) {
     // Do something
+    int x = cena_atual->jogador->scenePos().x();
+    int y = cena_atual->jogador->scenePos().y();
+    switch(event->key()){
+    case(Qt::Key_T):
+        castle_event();
+        break;
+    case(Qt::Key_R):
+        death_event();
+        break;
+    case Qt::Key_Enter:
+    case Qt::Key_Return:
+    case Qt::Key_E:
+        char token_u = cena_atual->cenario.mapa[(y-LADO_BLOCOS)/LADO_BLOCOS][x/LADO_BLOCOS];
+        char token_d = cena_atual->cenario.mapa[(y+LADO_BLOCOS)/LADO_BLOCOS][x/LADO_BLOCOS];
+        char token_l = cena_atual->cenario.mapa[y/LADO_BLOCOS][(x-LADO_BLOCOS)/LADO_BLOCOS];
+        char token_r = cena_atual->cenario.mapa[y/LADO_BLOCOS][(x+LADO_BLOCOS)/LADO_BLOCOS];
+        switch(token_u){
+            case 'N':
+                cena_atual->start_dialog("other_soldier.txt");
+                break;
+            case 'D':
+            case 'F':
+                cena_atual->jogador->setHP(std::max(0, cena_atual->jogador->getHP()-30));
+                // ATUALIZAR PLAYER STATUS
+                if (cena_atual->jogador->getHP() == 0) {
+                    death_event();
+                    return;
+                }
+                cena_atual->start_dialog("fight.txt");
+                break;
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+                castle_event();
+            break;
+            default:
+                break;
+        }
+        switch(token_d){
+            case 'N':
+                cena_atual->start_dialog("other_soldier.txt");
+                break;
+            case 'D':
+            case 'F':
+                cena_atual->jogador->setHP(std::max(0, cena_atual->jogador->getHP()-30));
+                // ATUALIZAR PLAYER STATUS
+                if (cena_atual->jogador->getHP() == 0) {
+                    death_event();
+                    return;
+                }
+                cena_atual->start_dialog("fight.txt");
+                break;
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+                castle_event();
+            break;
+            default:
+                break;
+        }
+        switch(token_l){
+            case 'N':
+                cena_atual->start_dialog("other_soldier.txt");
+                break;
+            case 'D':
+            case 'F':
+                cena_atual->jogador->setHP(std::max(0, cena_atual->jogador->getHP()-30));
+                // ATUALIZAR PLAYER STATUS
+                if (cena_atual->jogador->getHP() == 0) {
+                    death_event();
+                    return;
+                }
+                cena_atual->start_dialog("fight.txt");
+                break;
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+                castle_event();
+            break;
+            default:
+                break;
+        }
+        switch(token_r){
+            case 'N':
+                cena_atual->start_dialog("other_soldier.txt");
+                break;
+            case 'D':
+            case 'F':
+                cena_atual->jogador->setHP(std::max(0, cena_atual->jogador->getHP()-30));
+                // ATUALIZAR PLAYER STATUS
+                if (cena_atual->jogador->getHP() == 0) {
+                    death_event();
+                    return;
+                }
+                cena_atual->start_dialog("fight.txt");
+                break;
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+                castle_event();
+            break;
+            default:
+                break;
+        }
+        break;
+    }
+
 
     // Otherwise pass to the graphics view
     QGraphicsView::keyPressEvent(event);

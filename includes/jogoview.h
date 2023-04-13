@@ -13,6 +13,10 @@ public:
     JogoView(QWidget *parent);
     void setScene(QGraphicsScene *scene);
     void setBg(Background &mapa);
+    JogoScene* cena_atual;
+    void death_event();
+    void castle_event();
+    void setCenaAtual(JogoScene *cena);
 
 protected:
     void keyPressEvent(QKeyEvent *e);
