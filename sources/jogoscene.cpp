@@ -1,8 +1,10 @@
 #include "jogoscene.h"
+#include "playerstatus.h"
 #include "definicoes.h"
 #include "classes.h"
 
 #include <iostream>
+#include <algorithm>
 #include <cmath>
 
 #include <QApplication>
@@ -112,6 +114,7 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
             case 'D':
             case 'F':
                 JogoScene::start_dialog("fight.txt");
+                jogador->setHP(std::max(0, jogador->getHP()-30));
                 break;
             default:
                 break;
@@ -123,6 +126,7 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
             case 'D':
             case 'F':
                 JogoScene::start_dialog("fight.txt");
+                jogador->setHP(std::max(0, jogador->getHP()-30));
                 break;
             default:
                 break;
@@ -134,6 +138,7 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
             case 'D':
             case 'F':
                 JogoScene::start_dialog("fight.txt");
+                jogador->setHP(std::max(0, jogador->getHP()-30));
                 break;
             default:
                 break;
@@ -145,6 +150,7 @@ void JogoScene::keyPressEvent(QKeyEvent* event) {
             case 'D':
             case 'F':
                 JogoScene::start_dialog("fight.txt");
+                jogador->setHP(std::max(0, jogador->getHP()-30));
                 break;
             default:
                 break;

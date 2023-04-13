@@ -47,12 +47,12 @@ QString Jogador::getName() {
     return name;
 }
 
-void Jogador::setHP(int h) {
-    hp = h;
+void Jogador::setHP(int new_v) {
+    hp = new_v;
 }
 
-void Jogador::setMP(int m) {
-    mp = m;
+void Jogador::setMP(int new_v) {
+    mp = new_v;
 }
 
 int Jogador::getHP() {

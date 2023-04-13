@@ -33,12 +33,16 @@ void PlayerStatus::atualizaConteudo()
 
     this->setText(QString(
             " %1 %2\n"\
-            " Vida: %3\n"\
-            " Força: %4\n"
+            " Pontos de Vida: %3 \n"\
+            " Pontos de Mana: %4 \n"
     )
     .arg(boneco->classe)
     .arg(nome)
     .arg(boneco->getHP())
-    .arg(boneco->getMP()));
+    //.arg(boneco->boneco->getMaxHP())
+    .arg(boneco->getMP())
+    //.arg(boneco->boneco->getMaxMP())
+    );
 
 }
+
