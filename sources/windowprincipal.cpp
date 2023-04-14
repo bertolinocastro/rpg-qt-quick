@@ -3,6 +3,7 @@
 #include "ui_windowprincipal.h"
 #include <iostream>
 #include <background.h>
+#include "jogoview.h"
 
 WindowPrincipal::WindowPrincipal(QWidget *parent)
     : QMainWindow(parent)
@@ -29,13 +30,16 @@ void WindowPrincipal::novoJogo(){
     start("initial-new.txt", ui->lineEditNomePersonagem->text(), ui->comboBoxClasses->currentText());
 }
 
+
 void WindowPrincipal::start(std::string fase, QString personagem, QString classe){
 
     JogoView* jogoView = ui->jogoView;
     jogoView->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
+    Jogador* jogador = new Jogador(personagem, classe);
+
     //Background mapa = Background(fase);
-    JogoScene* jogoScene = new JogoScene(fase, personagem, classe);
+    JogoScene* jogoScene = new JogoScene(fase, jogador);
 
     jogoView->setCenaAtual(jogoScene);
     jogoView->setScene(jogoScene);
@@ -43,5 +47,7 @@ void WindowPrincipal::start(std::string fase, QString personagem, QString classe
 
     ui->playerStatus->setBoneco(jogoScene->jogador);
     ui->playerStatus->init();
+
+    QObject::connect(jogoView, &JogoView::atualizaPlayerStatus, ui->playerStatus, &PlayerStatus::atualiza);
 
 }

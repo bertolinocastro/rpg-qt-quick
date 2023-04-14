@@ -21,6 +21,12 @@ public:
 protected:
     void keyPressEvent(QKeyEvent *e);
 
+public:
+
+signals:
+
+    void atualizaPlayerStatus();
+
 };
 
 #endif // JOGOVIEW_H

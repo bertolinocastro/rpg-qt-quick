@@ -14,9 +14,13 @@ public:
     void setBoneco(Jogador *boneco);
     void atualizaConteudo();
     void init();
+
 private:
     Jogador* boneco;
     QString nome;
+public slots:
+    void atualiza();
+
 };
 
 #endif // PLAYERSTATUS_H

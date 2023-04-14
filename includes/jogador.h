@@ -1,6 +1,6 @@
 #ifndef JOGADOR_H
 #define JOGADOR_H
-#include "definicoes.h"
+//#include "definicoes.h"
 #include "classes.h"
 
 //#include <QObject>
@@ -8,6 +8,7 @@
 
 class Jogador : public QGraphicsItem
 {
+//    Q_OBJECT
 public:
     Jogador(QString nome, QString classe);
 
@@ -28,6 +29,10 @@ public:
 
 private:
     std::string caminho_sprite;
+
+//public:
+//signals:/*
+//    void atualizaPlayerStatus();*/
 };
 
 #endif // JOGADOR_H

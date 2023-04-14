@@ -3,6 +3,7 @@
 #include <QString>
 #include <QApplication>
 #include <QScreen>
+#include <iostream>
 
 PlayerStatus::PlayerStatus(QWidget *parent) : QLabel(parent)
 {
@@ -23,6 +24,12 @@ void PlayerStatus::init(){
     atualizaConteudo();
 }
 
+void PlayerStatus::atualiza()
+{
+    this->atualizaConteudo();
+}
+
+
 void PlayerStatus::setBoneco(Jogador* boneco){
     this->boneco = boneco;
     nome = boneco->getName();
@@ -36,13 +43,8 @@ void PlayerStatus::atualizaConteudo()
             " Pontos de Vida: %3 \n"\
             " Pontos de Mana: %4 \n"
     )
-    .arg(boneco->classe)
-    .arg(nome)
-    .arg(boneco->getHP())
-    //.arg(boneco->boneco->getMaxHP())
-    .arg(boneco->getMP())
-    //.arg(boneco->boneco->getMaxMP())
-    );
+    .arg(boneco->classe).arg(nome)
+    .arg(boneco->getHP()).arg(boneco->getMP()));
 
 }
 

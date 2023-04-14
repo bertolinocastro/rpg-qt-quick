@@ -24,24 +24,25 @@
 
 JogoScene::JogoScene() {}
 
-JogoScene::JogoScene(std::string file, QString nome, QString classe) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOCOS, N_BLOCOS*LADO_BLOCOS) {
+JogoScene::JogoScene(std::string file, Jogador* jogador) : QGraphicsScene(0, 0, N_BLOCOS*LADO_BLOCOS, N_BLOCOS*LADO_BLOCOS) {
     std::cout << " rect da cena " << sceneRect().width() << " " << sceneRect().height() << std::endl;
 //    player_start_position = QPointF(2*LADO_BLOCOS,45*LADO_BLOCOS);
 
     cenario =  Background(file);
-    int n = 48;
-    int m = 48;
-    for (int i=0;i<n;i++){
-		std::cout << std::endl;
-		std::cout << "|";
-		for (int k=0;k<m;k++){
-			if(k>0) std::cout << " ";
-			std::cout << cenario.mapa[i][k];
-			if(k==m-1) std::cout << "|";
-		}
-    }
+//    int n = 48;
+//    int m = 48;
+//    for (int i=0;i<n;i++){
+//		std::cout << std::endl;
+//		std::cout << "|";
+//		for (int k=0;k<m;k++){
+//			if(k>0) std::cout << " ";
+//			std::cout << cenario.mapa[i][k];
+//			if(k==m-1) std::cout << "|";
+//		}
+//    }
 
-    jogador = new Jogador(nome, classe);
+//    jogador = new Jogador(nome, classe);
+    this->jogador = jogador;
 //    jogador->setPos(player_start_position);
     jogador->setPos(cenario.player_start_position);
     addItem(jogador);

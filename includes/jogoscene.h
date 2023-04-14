@@ -1,7 +1,7 @@
 #ifndef JOGOSCENE_H
 #define JOGOSCENE_H
 
-#include "playerstatus.h"
+//#include "playerstatus.h"
 #include <background.h>
 #include <jogador.h>
 #include <dialog.h>
@@ -16,7 +16,7 @@ class JogoScene : public QGraphicsScene
     Q_OBJECT
 public:
     JogoScene();
-    JogoScene(std::string, QString nome, QString classe);
+    JogoScene(std::string, Jogador* jogador);
     void setBg(Background &mapa);
     void keyPressEvent(QKeyEvent* event);
     QPointF player_start_position;

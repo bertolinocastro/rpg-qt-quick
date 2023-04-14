@@ -29,9 +29,9 @@ void JogoView::setCenaAtual(JogoScene *cena) {
 void JogoView::setScene(QGraphicsScene* scene) {
     QGraphicsView::setScene(scene);
 
-    QRect telaGeometry = QGuiApplication::primaryScreen()->geometry();
+//    QRect telaGeometry = QGuiApplication::primaryScreen()->geometry();
 
-    std::cout << "Largura: "<<telaGeometry.width()<< " Altura: " << telaGeometry.height()<<std::endl;
+//    std::cout << "Largura: "<<telaGeometry.width()<< " Altura: " << telaGeometry.height()<<std::endl;
 
 //    scene->setSceneRect(telaGeometry);
 //    scene->setSceneRect(0, 0, 64*15, 64*15);
@@ -42,16 +42,16 @@ void JogoView::setScene(QGraphicsScene* scene) {
 
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    QTransform trans = transform();
-    std::cout << "M11: " << trans.m11() << std::endl;
-    std::cout << "M12: " << trans.m12() << std::endl;
-    std::cout << "M13: " << trans.m13() << std::endl;
-    std::cout << "M21: " << trans.m21() << std::endl;
-    std::cout << "M22: " << trans.m22() << std::endl;
-    std::cout << "M23: " << trans.m23() << std::endl;
-    std::cout << "M31: " << trans.m31() << std::endl;
-    std::cout << "M32: " << trans.m32() << std::endl;
-    std::cout << "M33: " << trans.m33() << std::endl;
+//    QTransform trans = transform();
+//    std::cout << "M11: " << trans.m11() << std::endl;
+//    std::cout << "M12: " << trans.m12() << std::endl;
+//    std::cout << "M13: " << trans.m13() << std::endl;
+//    std::cout << "M21: " << trans.m21() << std::endl;
+//    std::cout << "M22: " << trans.m22() << std::endl;
+//    std::cout << "M23: " << trans.m23() << std::endl;
+//    std::cout << "M31: " << trans.m31() << std::endl;
+//    std::cout << "M32: " << trans.m32() << std::endl;
+//    std::cout << "M33: " << trans.m33() << std::endl;
 
 //    setGeometry(0, 0, 64*12, 64*12);
 }
@@ -91,7 +91,7 @@ void JogoView::setBg(Background& mapa) {
 
     x = geo.width()/(N_BLOCOS*LADO_BLOCOS);
 
-    std::cout << " scale em x: "<<x<<std::endl;
+//    std::cout << " scale em x: "<<x<<std::endl;
 //    scale(x, 1);
 //    setTransform(QTransform::fromScale(2.0, 1.0));
 //    setSceneRect(0, 0, 2*width(), height());
@@ -99,15 +99,16 @@ void JogoView::setBg(Background& mapa) {
 }
 
 void JogoView::castle_event() {
-    JogoScene* jogoScene = new JogoScene("castle_in.txt", cena_atual->jogador->name, cena_atual->jogador->classe);
+    JogoScene* jogoScene = new JogoScene("castle_in.txt", this->cena_atual->jogador);
     this->setCenaAtual(jogoScene);
     this->setScene(jogoScene);
     this->setBg(jogoScene->cenario);
     std::cout << "Inside Castle" << std::endl;
 
 }
+
 void JogoView::death_event() {
-    JogoScene* jogoScene = new JogoScene("goddess_map.txt", cena_atual->jogador->name, cena_atual->jogador->classe);
+    JogoScene* jogoScene = new JogoScene("goddess_map.txt", this->cena_atual->jogador);
     this->setCenaAtual(jogoScene);
     this->setScene(jogoScene);
     this->setBg(jogoScene->cenario);
@@ -140,7 +141,7 @@ void JogoView::keyPressEvent(QKeyEvent *event) {
             case 'D':
             case 'F':
                 cena_atual->jogador->setHP(std::max(0, cena_atual->jogador->getHP()-30));
-                // ATUALIZAR PLAYER STATUS
+                emit atualizaPlayerStatus();
                 if (cena_atual->jogador->getHP() == 0) {
                     death_event();
                     return;
@@ -163,7 +164,7 @@ void JogoView::keyPressEvent(QKeyEvent *event) {
             case 'D':
             case 'F':
                 cena_atual->jogador->setHP(std::max(0, cena_atual->jogador->getHP()-30));
-                // ATUALIZAR PLAYER STATUS
+                emit atualizaPlayerStatus();
                 if (cena_atual->jogador->getHP() == 0) {
                     death_event();
                     return;
@@ -186,7 +187,7 @@ void JogoView::keyPressEvent(QKeyEvent *event) {
             case 'D':
             case 'F':
                 cena_atual->jogador->setHP(std::max(0, cena_atual->jogador->getHP()-30));
-                // ATUALIZAR PLAYER STATUS
+                emit atualizaPlayerStatus();
                 if (cena_atual->jogador->getHP() == 0) {
                     death_event();
                     return;
@@ -209,7 +210,8 @@ void JogoView::keyPressEvent(QKeyEvent *event) {
             case 'D':
             case 'F':
                 cena_atual->jogador->setHP(std::max(0, cena_atual->jogador->getHP()-30));
-                // ATUALIZAR PLAYER STATUS
+//                std::cout<< "endereço do boneco aqui nesse view "<<boneco<<std::endl;
+                emit atualizaPlayerStatus();
                 if (cena_atual->jogador->getHP() == 0) {
                     death_event();
                     return;
